@@ -1,23 +1,327 @@
 aid: envisics
 name: Envisics
-description: 'Envisics is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Envisics is a British deep-technology company headquartered in Milton Keynes, United Kingdom, that
+  pioneers dynamic holography for automotive augmented-reality head-up displays (AR HUD). The work
+  began with Dr Jamieson Christmas' PhD at Cambridge University in 2004, continued through Two Trees
+  Photonics (founded 2010, acquired by DAQRI in 2015) which built the world's first laser holographic
+  HUD for Jaguar Land Rover, and was spun out as the independent company Envisics on 1 January 2018.
+  Its Dynamic Holography Platform and next-generation Holographic Waveguide Technology combine
+  proprietary algorithms with simpler, fewer and more robust optics to deliver multi-plane AR imagery
+  at under 10% of the optical power of conventional systems; first-generation technology shipped in
+  over 150,000 Jaguar and Land Rover vehicles and second-generation technology was slated for the
+  Cadillac LYRIQ-V and 2026 Cadillac VISTIQ. Investors included Hyundai Mobis, General Motors
+  Ventures, Stellantis, InMotion Ventures (Jaguar Land Rover) and Tarsadia Investments. Envisics is
+  an automotive hardware and optics supplier rather than a software vendor: it publishes no
+  commercial or developer-facing product API, no developer portal, and no SDKs. The only
+  machine-readable interface it exposes is the WordPress REST content API behind its corporate
+  website at envisics.com, captured here for discovery purposes and anonymously readable but
+  read-only. Envisics Ltd. entered administration on 22 April 2026 under the Insolvency Act 1986,
+  with Geoff Rowley and Simon Carvill-Biggs of FRP Advisory Trading Limited appointed as Joint
+  Administrators.
 url: https://raw.githubusercontent.com/api-evangelist/envisics/refs/heads/main/apis.yml
+image: https://envisics.com/wp-content/uploads/2024/11/logomark.svg
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-12'
 modified: '2026-08-12'
 tags:
 - Company
-apis: []
+- Automotive
+- Augmented Reality
+- Holography
+- Head-Up Display
+- Photonics
+- Optics
+- Deep Technology
+- Hardware
+- Advanced Manufacturing
+- Content
+apis:
+- aid: envisics:envisics-posts-api
+  name: Envisics Posts API
+  description: >-
+    Public, unauthenticated read access to the Envisics newsroom archive — press releases, news
+    items, tech-shorts and did-you-know posts — via the WordPress core REST API. Verified live at 34
+    published posts on 2026-08-12.
+  humanURL: https://envisics.com/wp-json/
+  baseURL: https://envisics.com/wp-json
+  tags:
+  - Posts
+  - Newsroom
+  - Content
+  properties:
+  - type: OpenAPI
+    url: openapi/envisics-posts-api-openapi.yml
+  - type: Authentication
+    url: authentication/envisics-authentication.yml
+  - type: ErrorCatalog
+    url: errors/envisics-problem-types.yml
+  - type: Conventions
+    url: conventions/envisics-conventions.yml
+  - type: DataModel
+    url: data-model/envisics-data-model.yml
+  - type: Conformance
+    url: conformance/envisics-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/envisics-lifecycle.yml
+  - type: Overlay
+    url: overlays/envisics-posts-api-overlay.yaml
+- aid: envisics:envisics-pages-api
+  name: Envisics Pages API
+  description: >-
+    Public, unauthenticated read access to the static pages of envisics.com — Products, Technology,
+    Company, Newsroom, Multi Media, Careers, Contact, Terms of Use, Supplier Terms & Conditions and
+    Privacy Policy. Verified live at 11 published pages on 2026-08-12. The site homepage carries the
+    Notice to Creditors for Envisics Ltd. (In Administration) and is readable through this API.
+  humanURL: https://envisics.com/wp-json/
+  baseURL: https://envisics.com/wp-json
+  tags:
+  - Pages
+  - Content
+  properties:
+  - type: OpenAPI
+    url: openapi/envisics-pages-api-openapi.yml
+  - type: Authentication
+    url: authentication/envisics-authentication.yml
+  - type: ErrorCatalog
+    url: errors/envisics-problem-types.yml
+  - type: Conventions
+    url: conventions/envisics-conventions.yml
+  - type: DataModel
+    url: data-model/envisics-data-model.yml
+  - type: Conformance
+    url: conformance/envisics-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/envisics-lifecycle.yml
+  - type: Overlay
+    url: overlays/envisics-pages-api-overlay.yaml
+- aid: envisics:envisics-media-api
+  name: Envisics Media API
+  description: >-
+    Public, unauthenticated read access to the media library behind envisics.com — AR HUD product
+    imagery, holographic waveguide renders, press photography and brand assets with their generated
+    size variants. Verified live at 219 attachments on 2026-08-12.
+  humanURL: https://envisics.com/wp-json/
+  baseURL: https://envisics.com/wp-json
+  tags:
+  - Media
+  - Content
+  properties:
+  - type: OpenAPI
+    url: openapi/envisics-media-api-openapi.yml
+  - type: Authentication
+    url: authentication/envisics-authentication.yml
+  - type: ErrorCatalog
+    url: errors/envisics-problem-types.yml
+  - type: Conventions
+    url: conventions/envisics-conventions.yml
+  - type: DataModel
+    url: data-model/envisics-data-model.yml
+  - type: Conformance
+    url: conformance/envisics-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/envisics-lifecycle.yml
+  - type: Overlay
+    url: overlays/envisics-media-api-overlay.yaml
+- aid: envisics:envisics-taxonomy-api
+  name: Envisics Taxonomy API
+  description: >-
+    Public, unauthenticated read access to the classification vocabularies behind envisics.com: the
+    newsroom categories that separate news, press, tech-shorts, white-papers and did-you-know items,
+    and the post tags. Verified live at 7 categories and 24 tags on 2026-08-12.
+  humanURL: https://envisics.com/wp-json/
+  baseURL: https://envisics.com/wp-json
+  tags:
+  - Taxonomy
+  - Content
+  properties:
+  - type: OpenAPI
+    url: openapi/envisics-taxonomy-api-openapi.yml
+  - type: Authentication
+    url: authentication/envisics-authentication.yml
+  - type: ErrorCatalog
+    url: errors/envisics-problem-types.yml
+  - type: Conventions
+    url: conventions/envisics-conventions.yml
+  - type: DataModel
+    url: data-model/envisics-data-model.yml
+  - type: Conformance
+    url: conformance/envisics-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/envisics-lifecycle.yml
+  - type: Overlay
+    url: overlays/envisics-taxonomy-api-overlay.yaml
+- aid: envisics:envisics-search-api
+  name: Envisics Search API
+  description: >-
+    Public, unauthenticated cross-content search over envisics.com — posts and pages — returning
+    lightweight id / title / url / type / subtype records. Verified live at 62 searchable objects on
+    2026-08-12.
+  humanURL: https://envisics.com/wp-json/
+  baseURL: https://envisics.com/wp-json
+  tags:
+  - Search
+  - Content
+  properties:
+  - type: OpenAPI
+    url: openapi/envisics-search-api-openapi.yml
+  - type: Authentication
+    url: authentication/envisics-authentication.yml
+  - type: ErrorCatalog
+    url: errors/envisics-problem-types.yml
+  - type: Conventions
+    url: conventions/envisics-conventions.yml
+  - type: Conformance
+    url: conformance/envisics-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/envisics-lifecycle.yml
+  - type: Overlay
+    url: overlays/envisics-search-api-overlay.yaml
+- aid: envisics:envisics-discovery-api
+  name: Envisics Discovery API
+  description: >-
+    Public, unauthenticated discovery metadata for envisics.com — the registered content types and
+    taxonomies, the publication statuses, and the public author records. This is the surface that
+    makes the rest of the API self-describing in the absence of any published documentation; the
+    route index advertised 602 routes across 25 namespaces on 2026-08-12.
+  humanURL: https://envisics.com/wp-json/
+  baseURL: https://envisics.com/wp-json
+  tags:
+  - Discovery
+  - Metadata
+  properties:
+  - type: OpenAPI
+    url: openapi/envisics-discovery-api-openapi.yml
+  - type: Authentication
+    url: authentication/envisics-authentication.yml
+  - type: ErrorCatalog
+    url: errors/envisics-problem-types.yml
+  - type: Conventions
+    url: conventions/envisics-conventions.yml
+  - type: Conformance
+    url: conformance/envisics-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/envisics-lifecycle.yml
+  - type: Overlay
+    url: overlays/envisics-discovery-api-overlay.yaml
+- aid: envisics:envisics-oembed-api
+  name: Envisics oEmbed API
+  description: >-
+    Public oEmbed 1.0 provider endpoint for envisics.com URLs, returning embeddable rich metadata —
+    title, author, dimensions and iframe HTML — for any post or page on the site.
+  humanURL: https://envisics.com/wp-json/
+  baseURL: https://envisics.com/wp-json
+  tags:
+  - oEmbed
+  - Metadata
+  properties:
+  - type: OpenAPI
+    url: openapi/envisics-oembed-api-openapi.yml
+  - type: Authentication
+    url: authentication/envisics-authentication.yml
+  - type: ErrorCatalog
+    url: errors/envisics-problem-types.yml
+  - type: Conventions
+    url: conventions/envisics-conventions.yml
+  - type: Conformance
+    url: conformance/envisics-conformance.yml
+  - type: Overlay
+    url: overlays/envisics-oembed-api-overlay.yaml
+- aid: envisics:envisics-seo-api
+  name: Envisics SEO Metadata API
+  description: >-
+    Public Yoast SEO head endpoint returning the rendered head metadata and its parsed JSON-LD
+    schema.org graph for any envisics.com URL — a structured-data view of every page without scraping
+    the HTML.
+  humanURL: https://envisics.com/wp-json/
+  baseURL: https://envisics.com/wp-json
+  tags:
+  - SEO
+  - Metadata
+  - JSON-LD
+  properties:
+  - type: OpenAPI
+    url: openapi/envisics-seo-api-openapi.yml
+  - type: Authentication
+    url: authentication/envisics-authentication.yml
+  - type: ErrorCatalog
+    url: errors/envisics-problem-types.yml
+  - type: Conventions
+    url: conventions/envisics-conventions.yml
+  - type: Conformance
+    url: conformance/envisics-conformance.yml
+  - type: Overlay
+    url: overlays/envisics-seo-api-overlay.yaml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: AgenticAccess
+  url: agentic-access/envisics-agentic-access.yml
+- type: DomainSecurity
+  url: security/envisics-domain-security.yml
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://envisics.com/
+- type: About
+  url: https://envisics.com/company/
+- type: Products
+  url: https://envisics.com/products/
+- type: Technology
+  url: https://envisics.com/technology/
+- type: Blog
+  url: https://envisics.com/newsroom/
+- type: BlogRSS
+  url: https://envisics.com/feed/
+- type: Press
+  url: https://envisics.com/press/
+- type: Media
+  url: https://envisics.com/multi-media/
+- type: Contact
+  url: https://envisics.com/contact/
+- type: Careers
+  url: https://envisics.com/careers/
+- type: TermsOfService
+  url: https://envisics.com/terms-of-use/
+- type: PrivacyPolicy
+  url: https://envisics.com/privacy-policy/
+- type: SupplierTerms
+  url: https://envisics.com/supplier-terms-conditions/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/envisics-limited/
+- type: Twitter
+  url: https://x.com/envisics
+- type: YouTube
+  url: https://www.youtube.com/@Envisics
+- type: Authentication
+  url: authentication/envisics-authentication.yml
+- type: Conventions
+  url: conventions/envisics-conventions.yml
+- type: ErrorCatalog
+  url: errors/envisics-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/envisics-lifecycle.yml
+- type: Conformance
+  url: conformance/envisics-conformance.yml
+- type: DataModel
+  url: data-model/envisics-data-model.yml
+- type: RateLimits
+  url: rate-limits/envisics-rate-limits.yml
+- type: Plans
+  url: plans/envisics-plans-pricing.yml
+- type: Examples
+  url: examples/envisics-examples.yml
+- type: LLMsTxt
+  url: llms/envisics-llms.txt
+- type: ToolCrosswalk
+  url: mcp/envisics-tool-crosswalk.yml
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-08-12'
+  status: enriched
+  artifacts_added: 35
+  pass: local-v1

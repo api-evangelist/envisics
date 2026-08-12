@@ -1,0 +1,49 @@
+generated: '2026-08-12'
+method: probed
+source: https://envisics.com/wp-json/ (root `authentication` block) + live anonymous and OPTIONS probes
+note: >-
+  Envisics publishes no developer program, no API keys and no OAuth. The entire public surface
+  documented in this repo is ANONYMOUS and READ-ONLY: every collection answers a credential-free GET
+  and advertises `Allow: GET` on the response. The only authentication mechanism the server itself
+  advertises is WordPress application passwords, whose authorization screen lives in wp-admin and is
+  for site operators, not third-party integrators. No OAuth 2.0, no OpenID Connect, no mutual TLS,
+  no API-key scheme exists anywhere on the surface — /.well-known/openid-configuration and
+  /.well-known/oauth-authorization-server both returned 404 on 2026-08-12. Because the OpenAPI
+  documents carry no securitySchemes (correctly — there are none on the anonymous surface), this
+  profile was written from live probes rather than derived by
+  0-working/derive-authentication.py, which reported 0 auth profiles for this provider.
+summary:
+  types: []
+  anonymous_read: true
+  api_key_in: []
+  oauth2_flows: []
+  scopes_published: false
+schemes: []
+anonymous_access:
+  supported: true
+  scope: read-only
+  verified:
+  - url: https://envisics.com/wp-json/wp/v2/posts?per_page=1
+    status: 200
+    allow_header: GET
+  - url: https://envisics.com/wp-json/wp/v2/pages?per_page=1
+    status: 200
+  - url: https://envisics.com/wp-json/wp/v2/media?per_page=1
+    status: 200
+  - url: https://envisics.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fenvisics.com%2F
+    status: 200
+  - url: https://envisics.com/wp-json/yoast/v1/get_head?url=https%3A%2F%2Fenvisics.com%2F
+    status: 200
+operator_only:
+- mechanism: WordPress application passwords
+  advertised_at: https://envisics.com/wp-json/
+  authorization_endpoint: https://envisics.com/wp-admin/authorize-application.php
+  audience: site operators
+  note: >-
+    Advertised in the REST root `authentication` block. Not a third-party integration path; no
+    registration, no self-service issuance, no documentation.
+gated_routes_observed:
+- route: /wp/v2/settings
+  status: 401
+  code: rest_forbidden
+  note: Requires authentication; excluded from the public OpenAPI documents in this repo.

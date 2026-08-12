@@ -1,0 +1,82 @@
+generated: '2026-08-12'
+method: derived
+source: openapi/ + live probes of https://envisics.com/wp-json/
+note: >-
+  Cross-cutting standards assertions for the Envisics WordPress REST content API, derived from the
+  OpenAPI documents in openapi/ and from live responses. Envisics publishes no compliance program,
+  no certifications and no trust center, so NO `Compliance` pointer is emitted in apis.yml.
+standards:
+- id: openapi-3.1
+  conforms: true
+  evidence: >-
+    Eight OpenAPI 3.1.0 documents in openapi/, derived by API Evangelist from the server's own
+    OPTIONS schema documents. Note these are third-party artifacts; Envisics publishes no spec.
+  published_by_provider: false
+- id: rest
+  conforms: true
+  evidence: Resource-oriented URIs, GET semantics, JSON representations, HTTP status codes.
+- id: json-schema
+  conforms: true
+  evidence: >-
+    Every wp/v2 route returns a JSON Schema document under OPTIONS `schema`, which is what the
+    openapi/ components were built from.
+- id: rfc8288-web-linking
+  conforms: true
+  evidence: Collection responses return a Link header with rel="next"/rel="prev".
+- id: hal-style-hypermedia
+  conforms: true
+  evidence: Resources carry a `_links` object with `curies` for namespaced relations.
+- id: oembed-1.0
+  conforms: true
+  evidence: >-
+    /oembed/1.0/embed returns a conformant oEmbed 1.0 rich response (version, provider_name, type,
+    width, height, html), verified live on 2026-08-12.
+- id: schema-org-json-ld
+  conforms: true
+  evidence: >-
+    /yoast/v1/get_head returns a parsed schema.org JSON-LD graph under json.schema for any site URL.
+- id: cors
+  conforms: true
+  evidence: >-
+    Access-Control-Expose-Headers advertises X-WP-Total, X-WP-TotalPages and Link; browser clients
+    can read pagination metadata.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: >-
+    Errors use the WordPress envelope {code, message, data.status} with content-type
+    application/json, not application/problem+json. See errors/envisics-problem-types.yml.
+- id: oauth2
+  conforms: false
+  evidence: No oauth2 securityScheme in any spec; /.well-known/oauth-authorization-server returned 404.
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration returned 404 on 2026-08-12.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returned 404 on 2026-08-12.
+- id: rfc9727-api-catalog
+  conforms: false
+  evidence: /.well-known/api-catalog returned 404 on 2026-08-12.
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: No Sunset or Deprecation header observed on any probed response.
+- id: idempotency-key
+  conforms: false
+  evidence: >-
+    No idempotency header is advertised or required; the anonymous surface is read-only.
+- id: rate-limit-headers
+  conforms: false
+  evidence: >-
+    No RateLimit-*, X-RateLimit-* or Retry-After header observed on any probed response.
+- id: asyncapi
+  conforms: false
+  evidence: >-
+    No event, streaming or webhook surface exists. Not applicable rather than failing — this
+    provider has no event surface to specify.
+compliance_program:
+  published: false
+  certifications: []
+  trust_center: null
+  note: >-
+    probe-security-programs.py found no vulnerability-disclosure program and no trust center on
+    2026-08-12. trust.envisics.com and security.envisics.com do not resolve.

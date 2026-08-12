@@ -1,0 +1,112 @@
+# Envisics
+
+> Envisics is a British deep-technology company in Milton Keynes, UK, that pioneers dynamic
+> holography for automotive augmented-reality head-up displays (AR HUD). It publishes no developer
+> program, no product API and no SDKs. The only machine-readable interface it exposes is the
+> WordPress REST content API behind its corporate website — anonymous, read-only, and documented
+> here by API Evangelist as a third-party profile. Envisics Ltd. entered administration on
+> 2026-04-22; this surface carries no service commitment.
+
+Generated: 2026-08-12
+Method: generated (no /llms.txt is published at https://envisics.com/llms.txt — probed, HTTP 404)
+Source: API Evangelist profile at https://github.com/api-evangelist/envisics
+
+## Company
+
+- [Envisics](https://envisics.com/): Dynamic holography for automotive AR head-up displays.
+- [Company](https://envisics.com/company/): Founded 1 January 2018, spun out of DAQRI; the research
+  began with Dr Jamieson Christmas' Cambridge PhD in 2004 and continued at Two Trees Photonics from
+  2010, which built the world's first laser holographic HUD for Jaguar Land Rover.
+- [Products](https://envisics.com/products/): Holographic Waveguide Technology — single-plane,
+  wide-field-of-view AR HUD; second-generation dual-image-plane HUD.
+- [Technology](https://envisics.com/technology/): Dynamic Holography Platform — computer-generated
+  holography using under 10% of the optical power of conventional HUD systems.
+- [Newsroom](https://envisics.com/newsroom/): Press releases, news and technical shorts.
+- [Careers](https://envisics.com/careers/)
+- [Contact](https://envisics.com/contact/): contactus@envisics.com, +44 (0)1908 886 220.
+
+## Corporate status
+
+Envisics Ltd. entered administration on 22 April 2026 under the Insolvency Act 1986. Geoff Rowley
+and Simon Carvill-Biggs of FRP Advisory Trading Limited are the Joint Administrators. Creditor and
+administration enquiries: Envisics@frpadvisory.com. The notice is published at
+https://envisics.com/ and is readable through the Pages API. Any use of this profile should carry
+that fact.
+
+## APIs
+
+All eight APIs below are projections of one surface: the WordPress REST content API at
+`https://envisics.com/wp-json`. Every one is anonymous and read-only. There is no API key, no OAuth,
+no sign-up, no plan and no published rate limit.
+
+- [Envisics Posts API](https://envisics.com/wp-json/wp/v2/posts): 34 published newsroom posts.
+- [Envisics Pages API](https://envisics.com/wp-json/wp/v2/pages): 11 published pages, including the
+  administration notice on the homepage.
+- [Envisics Media API](https://envisics.com/wp-json/wp/v2/media): 219 attachments — AR HUD imagery,
+  waveguide renders, press photography.
+- [Envisics Taxonomy API](https://envisics.com/wp-json/wp/v2/categories): 7 categories, 24 tags.
+- [Envisics Search API](https://envisics.com/wp-json/wp/v2/search): 62 searchable objects.
+- [Envisics Discovery API](https://envisics.com/wp-json/wp/v2/types): content types, taxonomies,
+  statuses and public author records.
+- [Envisics oEmbed API](https://envisics.com/wp-json/oembed/1.0/embed): oEmbed 1.0 rich metadata.
+- [Envisics SEO Metadata API](https://envisics.com/wp-json/yoast/v1/get_head): rendered head
+  metadata plus the schema.org JSON-LD graph for any site URL.
+
+## Specs
+
+Derived by API Evangelist from the server's own HTTP OPTIONS schema documents on 2026-08-12.
+Envisics publishes no OpenAPI.
+
+- [Posts OpenAPI](https://raw.githubusercontent.com/api-evangelist/envisics/refs/heads/main/openapi/envisics-posts-api-openapi.yml)
+- [Pages OpenAPI](https://raw.githubusercontent.com/api-evangelist/envisics/refs/heads/main/openapi/envisics-pages-api-openapi.yml)
+- [Media OpenAPI](https://raw.githubusercontent.com/api-evangelist/envisics/refs/heads/main/openapi/envisics-media-api-openapi.yml)
+- [Taxonomy OpenAPI](https://raw.githubusercontent.com/api-evangelist/envisics/refs/heads/main/openapi/envisics-taxonomy-api-openapi.yml)
+- [Search OpenAPI](https://raw.githubusercontent.com/api-evangelist/envisics/refs/heads/main/openapi/envisics-search-api-openapi.yml)
+- [Discovery OpenAPI](https://raw.githubusercontent.com/api-evangelist/envisics/refs/heads/main/openapi/envisics-discovery-api-openapi.yml)
+- [oEmbed OpenAPI](https://raw.githubusercontent.com/api-evangelist/envisics/refs/heads/main/openapi/envisics-oembed-api-openapi.yml)
+- [SEO OpenAPI](https://raw.githubusercontent.com/api-evangelist/envisics/refs/heads/main/openapi/envisics-seo-api-openapi.yml)
+
+## How to call it
+
+- Base URL: `https://envisics.com/wp-json`
+- Authentication: none. Send no Authorization header.
+- Pagination: `page` + `per_page` (1-100); totals in the `X-WP-Total` and `X-WP-TotalPages` response
+  headers; `Link` carries `rel="next"`.
+- Trim payloads with `_fields=`; inline relations with `_embed`.
+- Errors: `{"code":"...","message":"...","data":{"status":404}}` — the WordPress envelope, NOT RFC
+  9457 problem+json.
+- Rate limits: none published, none signalled. No `RateLimit-*`, no `Retry-After`. Self-throttle and
+  cache.
+- Writes: not available anonymously. Collections advertise `Allow: GET`.
+
+## Artifacts
+
+- [Authentication](https://raw.githubusercontent.com/api-evangelist/envisics/refs/heads/main/authentication/envisics-authentication.yml)
+- [Conventions](https://raw.githubusercontent.com/api-evangelist/envisics/refs/heads/main/conventions/envisics-conventions.yml)
+- [Error catalog](https://raw.githubusercontent.com/api-evangelist/envisics/refs/heads/main/errors/envisics-problem-types.yml)
+- [Lifecycle](https://raw.githubusercontent.com/api-evangelist/envisics/refs/heads/main/lifecycle/envisics-lifecycle.yml)
+- [Data model](https://raw.githubusercontent.com/api-evangelist/envisics/refs/heads/main/data-model/envisics-data-model.yml)
+- [Conformance](https://raw.githubusercontent.com/api-evangelist/envisics/refs/heads/main/conformance/envisics-conformance.yml)
+- [Rate limits](https://raw.githubusercontent.com/api-evangelist/envisics/refs/heads/main/rate-limits/envisics-rate-limits.yml)
+- [Plans and pricing](https://raw.githubusercontent.com/api-evangelist/envisics/refs/heads/main/plans/envisics-plans-pricing.yml)
+- [Packages](https://raw.githubusercontent.com/api-evangelist/envisics/refs/heads/main/packages/envisics-packages.yml)
+- [Examples](https://raw.githubusercontent.com/api-evangelist/envisics/refs/heads/main/examples/envisics-examples.yml)
+- [Agent skills](https://raw.githubusercontent.com/api-evangelist/envisics/refs/heads/main/skills/_index.yml)
+- [MCP candidate tools](https://raw.githubusercontent.com/api-evangelist/envisics/refs/heads/main/mcp/envisics-mcp.yml)
+- [Tool crosswalk](https://raw.githubusercontent.com/api-evangelist/envisics/refs/heads/main/mcp/envisics-tool-crosswalk.yml)
+- [Domain security](https://raw.githubusercontent.com/api-evangelist/envisics/refs/heads/main/security/envisics-domain-security.yml)
+- [Well-known probe](https://raw.githubusercontent.com/api-evangelist/envisics/refs/heads/main/well-known/envisics-well-known.yml)
+
+## What does not exist
+
+Verified absences, probed 2026-08-12 — recorded so nothing is inferred from silence.
+
+- No developer portal, no API documentation, no getting-started guide, no API reference.
+- No `/llms.txt`, no `/.well-known/*` document of any kind (all 404, including security.txt,
+  openid-configuration, oauth-authorization-server, api-catalog and agent-card.json).
+- No A2A agent card. No MCP server. No GraphQL endpoint. No gRPC.
+- No AsyncAPI, no webhooks, no events or streaming surface.
+- No public GitHub organization; no npm, PyPI or other published package.
+- No status page, no SLA, no deprecation policy, no changelog.
+- No pricing, no plans, no sign-up.
+- No `api.`, `developer.`, `docs.`, `portal.`, `status.` or `trust.` subdomain resolves.

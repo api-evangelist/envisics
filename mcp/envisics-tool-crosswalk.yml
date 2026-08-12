@@ -1,0 +1,145 @@
+generated: '2026-08-12'
+method: derived
+source: mcp/envisics-mcp.yml + openapi/envisics-*-openapi.yml
+note: >-
+  Binds each candidate MCP tool to its backing OpenAPI operation so the tool inherits a REAL input
+  schema (that operation's parameters) rather than a guessed one. Confidence is `high` throughout
+  because both sides were derived from the same probed contract — the MCP side is a candidate
+  derived from the OpenAPI, not a published server, so the binding is exact by construction. There
+  is no GraphQL surface and no published MCP server; nothing here asserts that Envisics ships either.
+surfaces:
+  openapi:
+    files:
+    - openapi/envisics-posts-api-openapi.yml
+    - openapi/envisics-pages-api-openapi.yml
+    - openapi/envisics-media-api-openapi.yml
+    - openapi/envisics-taxonomy-api-openapi.yml
+    - openapi/envisics-search-api-openapi.yml
+    - openapi/envisics-discovery-api-openapi.yml
+    - openapi/envisics-oembed-api-openapi.yml
+    - openapi/envisics-seo-api-openapi.yml
+    gated: false
+    note: Derived by API Evangelist from the server's own OPTIONS schema documents; not published by Envisics.
+  graphql:
+    endpoint: null
+    gated: null
+    note: No GraphQL surface. https://envisics.com/graphql returned 404 on 2026-08-12.
+  mcp:
+    url: null
+    gated: null
+    note: No MCP server exists. /.well-known/mcp.json returned 404 on 2026-08-12; tools below are candidates.
+crosswalk:
+- tool: list_posts
+  category: content
+  rest: [listPosts]
+  binding: rest
+  confidence: high
+- tool: get_post
+  category: content
+  rest: [getPost]
+  binding: rest
+  confidence: high
+- tool: list_pages
+  category: content
+  rest: [listPages]
+  binding: rest
+  confidence: high
+- tool: get_page
+  category: content
+  rest: [getPage]
+  binding: rest
+  confidence: high
+- tool: list_media
+  category: media
+  rest: [listMedia]
+  binding: rest
+  confidence: high
+- tool: get_media_item
+  category: media
+  rest: [getMediaItem]
+  binding: rest
+  confidence: high
+- tool: list_categories
+  category: taxonomy
+  rest: [listCategories]
+  binding: rest
+  confidence: high
+- tool: get_category
+  category: taxonomy
+  rest: [getCategory]
+  binding: rest
+  confidence: high
+- tool: list_tags
+  category: taxonomy
+  rest: [listTags]
+  binding: rest
+  confidence: high
+- tool: get_tag
+  category: taxonomy
+  rest: [getTag]
+  binding: rest
+  confidence: high
+- tool: search_site
+  category: search
+  rest: [search]
+  binding: rest
+  confidence: high
+- tool: list_types
+  category: discovery
+  rest: [listTypes]
+  binding: rest
+  confidence: high
+- tool: get_type
+  category: discovery
+  rest: [getType]
+  binding: rest
+  confidence: high
+- tool: list_taxonomies
+  category: discovery
+  rest: [listTaxonomies]
+  binding: rest
+  confidence: high
+- tool: get_taxonomy
+  category: discovery
+  rest: [getTaxonomy]
+  binding: rest
+  confidence: high
+- tool: list_statuses
+  category: discovery
+  rest: [listStatuses]
+  binding: rest
+  confidence: high
+- tool: get_status
+  category: discovery
+  rest: [getStatus]
+  binding: rest
+  confidence: high
+- tool: list_users
+  category: discovery
+  rest: [listUsers]
+  binding: rest
+  confidence: high
+- tool: get_user
+  category: discovery
+  rest: [getUser]
+  binding: rest
+  confidence: high
+- tool: get_oembed
+  category: metadata
+  rest: [getOEmbed]
+  binding: rest
+  confidence: high
+- tool: get_seo_head
+  category: metadata
+  rest: [getSeoHead]
+  binding: rest
+  confidence: high
+mcp_only: []
+rest_only: []
+coverage:
+  tools_named: 21
+  tools_bound: 21
+  mcp_only: 0
+  rest_ops_total: 21
+  rest_ops_with_tool: 21
+  graphql_fields: 0

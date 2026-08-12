@@ -1,0 +1,131 @@
+openapi: 3.1.0
+info:
+  title: Envisics SEO Metadata API
+  version: yoast/v1
+  description: >-
+    Public Yoast SEO head endpoint returning the rendered head metadata and its parsed JSON-LD
+    schema.org graph for any envisics.com URL — a structured-data view of every page without scraping
+    the HTML. Requires no authentication.
+  contact:
+    name: Envisics
+    url: https://envisics.com/contact/
+  x-derived-from: https://envisics.com/wp-json/ route index (yoast/v1 namespace) + a live response capture
+  x-derived-on: '2026-08-12'
+  x-api-evangelist-note: >-
+    Third-party profile. The parameter was read from the server's own published route index on
+    2026-08-12 and the response shape from a live capture of
+    /wp-json/yoast/v1/get_head?url=https%3A%2F%2Fenvisics.com%2Fproducts%2F — nothing is invented.
+    This endpoint is provided by the Yoast SEO plugin, not by Envisics.
+servers:
+- url: https://envisics.com/wp-json
+  description: Envisics WordPress REST API
+tags:
+- name: SEO
+  description: Rendered head metadata and JSON-LD schema.org graph.
+paths:
+  /yoast/v1/get_head:
+    get:
+      operationId: getSeoHead
+      summary: Get SEO head metadata for an envisics.com URL
+      description: >-
+        Return the rendered <head> metadata for a URL on envisics.com, plus a parsed JSON object
+        carrying the title, robots directives, canonical, Open Graph and Twitter tags and the
+        schema.org JSON-LD graph.
+      tags:
+      - SEO
+      parameters:
+      - name: url
+        in: query
+        required: true
+        description: The envisics.com URL to return head metadata for.
+        schema:
+          type: string
+          format: uri
+      responses:
+        '200':
+          description: Rendered and parsed head metadata.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SeoHead'
+        '404':
+          description: Not found — the supplied URL does not resolve to envisics.com content.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    SeoHead:
+      type: object
+      description: Yoast SEO head document for a single URL.
+      properties:
+        html:
+          type: string
+          description: The rendered head metadata as an HTML fragment.
+        json:
+          type: object
+          description: The same metadata parsed into a JSON object.
+          properties:
+            title:
+              type: string
+              description: Page title.
+            robots:
+              type: object
+              description: Robots directives.
+            canonical:
+              type: string
+              format: uri
+              description: Canonical URL.
+            og_locale:
+              type: string
+              description: Open Graph locale.
+            og_type:
+              type: string
+              description: Open Graph type.
+            og_title:
+              type: string
+              description: Open Graph title.
+            og_description:
+              type: string
+              description: Open Graph description.
+            og_url:
+              type: string
+              format: uri
+              description: Open Graph URL.
+            og_site_name:
+              type: string
+              description: Open Graph site name.
+            article_modified_time:
+              type: string
+              format: date-time
+              description: Last modification timestamp.
+            twitter_card:
+              type: string
+              description: Twitter card type.
+            twitter_misc:
+              type: object
+              description: Additional Twitter card fields.
+            schema:
+              type: object
+              description: schema.org JSON-LD graph for the page.
+        status:
+          type: integer
+          description: Status of the head lookup.
+    Error:
+      type: object
+      description: WordPress REST API error envelope.
+      properties:
+        code:
+          type: string
+          description: Machine-readable error code.
+        message:
+          type: string
+          description: Human-readable error message.
+        data:
+          type: object
+          description: Error data.
+          properties:
+            status:
+              type: integer
+              description: HTTP status code.

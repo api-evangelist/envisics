@@ -1,0 +1,91 @@
+generated: '2026-08-12'
+method: probed
+source: live error responses from https://envisics.com/wp-json/wp/v2/* plus openapi/ 4xx responses
+format: wordpress-rest
+rfc9457: false
+note: >-
+  Envisics publishes no error reference. Every entry below was either captured from a live error
+  response on 2026-08-12 or derived from the 4xx responses in the OpenAPI documents in openapi/.
+  The API does NOT use RFC 9457 application/problem+json — it returns the WordPress REST envelope
+  ({code, message, data.status}) with content-type application/json.
+envelope:
+  content_type: application/json
+  properties:
+    code: Machine-readable error code string.
+    message: Human-readable error message.
+    data.status: HTTP status code, repeated in the body.
+    data.params: Map of parameter name to validation message (validation errors only).
+    data.details: Map of parameter name to structured error detail (validation errors only).
+problems:
+- status: 400
+  code: rest_invalid_param
+  title: Invalid parameter
+  detail: One or more query parameters failed validation.
+  observed:
+    request: GET https://envisics.com/wp-json/wp/v2/posts?per_page=999
+    body: '{"code":"rest_invalid_param","message":"Invalid parameter(s): per_page","data":{"status":400,"params":{"per_page":"per_page
+      must be between 1 (inclusive) and 100 (inclusive)"}}}'
+  remediation: Read the parameter bounds and enums in the matching openapi/ document and resend.
+  applies_to:
+  - openapi/envisics-posts-api-openapi.yml#listPosts
+  - openapi/envisics-pages-api-openapi.yml#listPages
+  - openapi/envisics-media-api-openapi.yml#listMedia
+  - openapi/envisics-taxonomy-api-openapi.yml#listCategories
+  - openapi/envisics-taxonomy-api-openapi.yml#listTags
+  - openapi/envisics-search-api-openapi.yml#search
+  - openapi/envisics-discovery-api-openapi.yml#listTypes
+  - openapi/envisics-discovery-api-openapi.yml#listUsers
+- status: 400
+  code: rest_out_of_bounds
+  title: Parameter out of bounds
+  detail: A numeric parameter fell outside its permitted range; nested under data.details.
+  observed:
+    request: GET https://envisics.com/wp-json/wp/v2/posts?per_page=999
+    note: Returned inside the rest_invalid_param envelope as data.details.per_page.code.
+  remediation: Clamp per_page to 1-100 and page to 1..X-WP-TotalPages.
+- status: 404
+  code: rest_post_invalid_id
+  title: Invalid post ID
+  detail: No published post matches the supplied numeric identifier.
+  observed:
+    request: GET https://envisics.com/wp-json/wp/v2/posts/999999
+    body: '{"code":"rest_post_invalid_id","message":"Invalid post ID.","data":{"status":404}}'
+  remediation: List the collection first and use an id returned by it.
+  applies_to:
+  - openapi/envisics-posts-api-openapi.yml#getPost
+  - openapi/envisics-pages-api-openapi.yml#getPage
+  - openapi/envisics-media-api-openapi.yml#getMediaItem
+- status: 404
+  code: rest_term_invalid
+  title: Invalid term ID
+  detail: No category or tag term matches the supplied identifier.
+  remediation: List the taxonomy collection and use a returned term id.
+  applies_to:
+  - openapi/envisics-taxonomy-api-openapi.yml#getCategory
+  - openapi/envisics-taxonomy-api-openapi.yml#getTag
+- status: 404
+  code: rest_no_route
+  title: No route
+  detail: No handler is registered for the requested path and method.
+  remediation: Check the route index at https://envisics.com/wp-json/ for the registered paths.
+- status: 401
+  code: rest_forbidden
+  title: Authentication required
+  detail: The route is not part of the anonymous surface and requires credentials.
+  observed:
+    request: GET https://envisics.com/wp-json/wp/v2/settings
+    status: 401
+  remediation: >-
+    Not reachable by third parties. Envisics issues no API credentials; these routes are for site
+    operators using WordPress application passwords.
+- status: 403
+  code: rest_cookie_invalid_nonce
+  title: Invalid nonce
+  detail: A cookie-authenticated request supplied a missing or stale X-WP-Nonce.
+  remediation: Not applicable to anonymous integrators.
+- status: 500
+  title: Server error
+  detail: >-
+    Not observed during probing on 2026-08-12. Recorded because the origin (nginx) can return
+    generic 5xx responses that are NOT wrapped in the WordPress JSON envelope; treat a non-JSON body
+    on a 5xx as expected and retry with backoff.

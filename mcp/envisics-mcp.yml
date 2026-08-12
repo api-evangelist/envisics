@@ -1,0 +1,83 @@
+generated: '2026-08-12'
+method: derived
+status: candidate
+source: openapi/envisics-*-openapi.yml
+note: >-
+  Envisics operates NO hosted or remote MCP server. Probes on 2026-08-12 found no
+  /.well-known/mcp.json (404), no MCP endpoint referenced anywhere on envisics.com, no npm package,
+  and no public GitHub organization. The tool list below is a CANDIDATE derived from the OpenAPI
+  operations in openapi/ — it describes what an MCP server over this surface would expose, and it is
+  not a claim that Envisics publishes one. Each tool inherits its real input contract from the
+  parameters of the backing OpenAPI operation; see mcp/envisics-tool-crosswalk.yml.
+server:
+  name: envisics
+  transport: http
+  url: null
+  published: false
+  probed:
+  - url: https://envisics.com/.well-known/mcp.json
+    status: 404
+tools:
+- name: list_posts
+  description: List Envisics newsroom posts — press releases, news, tech-shorts and did-you-know items.
+  source_operation: openapi/envisics-posts-api-openapi.yml#listPosts
+- name: get_post
+  description: Retrieve a single Envisics newsroom post by id.
+  source_operation: openapi/envisics-posts-api-openapi.yml#getPost
+- name: list_pages
+  description: List the static pages of envisics.com, including the administration notice on the homepage.
+  source_operation: openapi/envisics-pages-api-openapi.yml#listPages
+- name: get_page
+  description: Retrieve a single envisics.com page by id.
+  source_operation: openapi/envisics-pages-api-openapi.yml#getPage
+- name: list_media
+  description: List media library attachments — AR HUD imagery, waveguide renders and press assets.
+  source_operation: openapi/envisics-media-api-openapi.yml#listMedia
+- name: get_media_item
+  description: Retrieve a single media attachment and its generated size variants.
+  source_operation: openapi/envisics-media-api-openapi.yml#getMediaItem
+- name: list_categories
+  description: List the newsroom categories used to classify Envisics posts.
+  source_operation: openapi/envisics-taxonomy-api-openapi.yml#listCategories
+- name: get_category
+  description: Retrieve a single newsroom category by id.
+  source_operation: openapi/envisics-taxonomy-api-openapi.yml#getCategory
+- name: list_tags
+  description: List the newsroom tags used to classify Envisics posts.
+  source_operation: openapi/envisics-taxonomy-api-openapi.yml#listTags
+- name: get_tag
+  description: Retrieve a single newsroom tag by id.
+  source_operation: openapi/envisics-taxonomy-api-openapi.yml#getTag
+- name: search_site
+  description: Search across posts and pages on envisics.com.
+  source_operation: openapi/envisics-search-api-openapi.yml#search
+- name: list_types
+  description: List the registered content types and their REST bases.
+  source_operation: openapi/envisics-discovery-api-openapi.yml#listTypes
+- name: get_type
+  description: Retrieve a single registered content type.
+  source_operation: openapi/envisics-discovery-api-openapi.yml#getType
+- name: list_taxonomies
+  description: List the registered taxonomies and the types they apply to.
+  source_operation: openapi/envisics-discovery-api-openapi.yml#listTaxonomies
+- name: get_taxonomy
+  description: Retrieve a single registered taxonomy.
+  source_operation: openapi/envisics-discovery-api-openapi.yml#getTaxonomy
+- name: list_statuses
+  description: List the publication statuses visible to an anonymous caller.
+  source_operation: openapi/envisics-discovery-api-openapi.yml#listStatuses
+- name: get_status
+  description: Retrieve a single publication status.
+  source_operation: openapi/envisics-discovery-api-openapi.yml#getStatus
+- name: list_users
+  description: List the public author records that have published content.
+  source_operation: openapi/envisics-discovery-api-openapi.yml#listUsers
+- name: get_user
+  description: Retrieve a single public author record.
+  source_operation: openapi/envisics-discovery-api-openapi.yml#getUser
+- name: get_oembed
+  description: Get oEmbed 1.0 rich metadata and embed HTML for an envisics.com URL.
+  source_operation: openapi/envisics-oembed-api-openapi.yml#getOEmbed
+- name: get_seo_head
+  description: Get rendered head metadata and the schema.org JSON-LD graph for an envisics.com URL.
+  source_operation: openapi/envisics-seo-api-openapi.yml#getSeoHead

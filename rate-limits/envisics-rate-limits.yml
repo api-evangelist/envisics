@@ -1,0 +1,50 @@
+generated: '2026-08-12'
+method: probed
+source: live response headers from https://envisics.com/wp-json/wp/v2/posts?per_page=2
+limit_count: 0
+note: >-
+  Envisics publishes no rate-limit documentation — it publishes no API documentation at all. Live
+  responses on 2026-08-12 returned NO rate-limit signal of any kind: no RateLimit-Limit /
+  RateLimit-Remaining / RateLimit-Reset (RFC 9239 draft), no X-RateLimit-*, no Retry-After. An
+  honest zero: the limit is unknown and unsignalled, which is itself the finding. An agent calling
+  this API cannot discover its budget from the runtime, and must self-throttle.
+limits: []
+response_headers:
+  documented: []
+  observed: []
+  absent:
+  - RateLimit-Limit
+  - RateLimit-Remaining
+  - RateLimit-Reset
+  - RateLimit-Policy
+  - X-RateLimit-Limit
+  - X-RateLimit-Remaining
+  - X-RateLimit-Reset
+  - Retry-After
+exhaustion_status_code: null
+observed_response_headers:
+- server
+- date
+- content-type
+- vary
+- cache-control
+- x-robots-tag
+- x-content-type-options
+- access-control-expose-headers
+- access-control-allow-headers
+- x-wp-total
+- x-wp-totalpages
+- link
+- allow
+- expires
+practical_bounds:
+  per_page_max: 100
+  per_page_min: 1
+  enforcement: HTTP 400 rest_invalid_param / rest_out_of_bounds
+  note: >-
+    The only server-enforced ceiling observed is the per_page page-size bound, which is a pagination
+    constraint rather than a rate limit. Origin is nginx with an s-maxage=2592000 edge cache on
+    collection responses, so repeated identical reads are likely served from cache.
+guidance: >-
+  Treat the surface as best-effort and unmetered-but-unguaranteed. The company is in administration
+  (see lifecycle/envisics-lifecycle.yml); throttle conservatively and cache aggressively.

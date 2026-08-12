@@ -1,0 +1,76 @@
+generated: '2026-08-12'
+method: probed
+source: https://envisics.com/wp-json/ route index + https://envisics.com/ (Notice to Creditors) + subdomain probes
+note: >-
+  Envisics publishes no versioning policy, no deprecation policy, no SLA and no status page. This
+  file records verified absences alongside the one lifecycle fact that dominates everything else:
+  the company is in administration. NO `StatusPage` and NO `Deprecation` pointer is emitted in
+  apis.yml, because neither exists.
+company_status:
+  state: in-administration
+  effective_date: '2026-04-22'
+  jurisdiction: United Kingdom
+  statute: Insolvency Act 1986
+  administrators:
+  - name: Geoff Rowley
+    firm: FRP Advisory Trading Limited
+  - name: Simon Carvill-Biggs
+    firm: FRP Advisory Trading Limited
+  creditor_contact: Envisics@frpadvisory.com
+  source: https://envisics.com/
+  evidence: >-
+    "NOTICE TO CREDITORS AND INTERESTED PARTIES — Envisics Ltd. (In Administration) ... has entered
+    into administration as of 22 April 2026" — published on the envisics.com homepage and readable
+    through the Pages API at /wp-json/wp/v2/pages/2.
+  implication: >-
+    The API surface catalogued here is the corporate website's CMS. It has no service commitment and
+    may be withdrawn at any time as the administration proceeds. Any integrator should treat it as
+    ephemeral.
+versioning:
+  scheme: uri-namespace
+  current: wp/v2
+  namespaces_advertised: 25
+  routes_advertised: 602
+  policy_url: null
+  policy_published: false
+  note: >-
+    The version is inherited from WordPress core, not chosen or announced by Envisics. There is no
+    published version policy, no changelog, and no announcement channel for API changes.
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  note: >-
+    No RFC 8594 Sunset or Deprecation headers were observed on any probed response, and no
+    deprecation policy page exists.
+sla:
+  url: null
+  published: false
+  uptime_target: null
+status_page:
+  url: null
+  published: false
+  probed:
+  - url: https://status.envisics.com/
+    result: DNS does not resolve
+support:
+  channels:
+  - type: email
+    value: contactus@envisics.com
+    source: https://envisics.com/contact/
+  - type: telephone
+    value: +44 (0)1908 886 220
+    source: https://envisics.com/contact/
+  - type: email
+    value: Envisics@frpadvisory.com
+    scope: administration and creditor enquiries only
+  developer_support: none
+deprecated_operations: []
+content_freshness:
+  latest_post_published: '2025-06-25'
+  latest_post: Envisics Powering Augmented Reality on 2026 Cadillac VISTIQ
+  latest_page_modified: '2026-05-12'
+  note: >-
+    The newsroom has not been updated since June 2025; the most recent page edit (2026-05-12) is the
+    homepage carrying the administration notice.

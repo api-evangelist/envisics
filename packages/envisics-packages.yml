@@ -1,0 +1,43 @@
+generated: '2026-08-12'
+method: searched
+source: npm registry search, PyPI, GitHub org lookup, and the full envisics.com page set
+package_count: 0
+official_package_count: 0
+note: >-
+  Envisics publishes no client libraries, no SDKs and no CLI in any public package registry, and
+  operates no public GitHub organization. It is a hardware and optics supplier with no developer
+  program, so there is nothing to wrap. NO `SDKs` pointer is emitted in apis.yml — emitting one
+  would credit the company with client libraries it does not ship. This is a verified zero, not an
+  unchecked field.
+packages: []
+registries_searched:
+- registry: npm
+  query: https://registry.npmjs.org/-/v1/search?text=envisics
+  result_count: 0
+  version: null
+  published: null
+  status: 200
+- registry: pypi
+  query: https://pypi.org/pypi/envisics/json
+  http_status: 404
+  version: null
+  published: null
+- registry: github
+  query: https://api.github.com/orgs/envisics
+  http_status: 404
+  note: Also probed `Envisics` and `envisics-ltd`; both 404. No public GitHub organization exists.
+- registry: rubygems
+  searched: false
+  note: Not searched — npm/PyPI/GitHub all returned nothing and no SDK is referenced anywhere on
+    envisics.com, so there is no candidate name to look up.
+- registry: cdn
+  searched: true
+  note: >-
+    No first-party JavaScript build is distributed from a CDN. The only scripts loaded by
+    envisics.com are WordPress core, Elementor, Gravity Forms and Jetpack assets served from
+    envisics.com/wp-content and wp-includes — third-party plugin code, not an Envisics client
+    library.
+consumption:
+  note: >-
+    The WordPress REST content API catalogued in this repo is consumable with any generic HTTP client
+    or a generic WordPress REST client library. No Envisics-specific package is required or exists.

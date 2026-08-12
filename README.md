@@ -42,5 +42,52 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Envisics is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.nasdaqprivatemarket.com/
+Envisics is a British deep-technology company headquartered in Milton Keynes, UK, pioneering dynamic
+holography for automotive augmented-reality head-up displays (AR HUD). Its first-generation technology
+shipped in over 150,000 Jaguar and Land Rover vehicles; second-generation technology was slated for the
+Cadillac LYRIQ-V and 2026 Cadillac VISTIQ. Investors included Hyundai Mobis, GM Ventures, Stellantis,
+InMotion Ventures and Tarsadia Investments.
+
+> **Corporate status.** Envisics Ltd. entered administration on **22 April 2026** under the Insolvency
+> Act 1986. Geoff Rowley and Simon Carvill-Biggs of FRP Advisory Trading Limited are the Joint
+> Administrators; creditor enquiries go to Envisics@frpadvisory.com. The notice is published on the
+> company homepage. Treat every surface catalogued here as ephemeral.
+
+## What this profile covers
+
+Envisics is a hardware and optics supplier, not a software vendor. It publishes **no developer program,
+no product API, no SDKs and no API documentation**. The only machine-readable interface it exposes is the
+**WordPress REST content API** behind its corporate website at `https://envisics.com/wp-json` — anonymous,
+read-only, and catalogued here for discovery. The eight OpenAPI documents in `openapi/` were derived by
+API Evangelist from the server's own HTTP `OPTIONS` schema documents on 2026-08-12; Envisics publishes no
+OpenAPI of its own.
+
+| Surface | Live count at capture |
+|---|---|
+| Posts (newsroom) | 34 |
+| Pages | 11 |
+| Media attachments | 219 |
+| Categories / Tags | 7 / 24 |
+| Searchable objects | 62 |
+| Public authors | 1 |
+
+## Verified absences (probed 2026-08-12)
+
+Recorded so nothing is inferred from silence:
+
+- No `/llms.txt`; no `/.well-known/*` document of any kind — `security.txt`, `openid-configuration`,
+  `oauth-authorization-server`, `api-catalog`, `agent-card.json` and `agent.json` all returned **404**.
+- No A2A agent card, no MCP server, no GraphQL endpoint, no gRPC.
+- No AsyncAPI, no webhooks, no event or streaming surface.
+- No public GitHub organization; no npm, PyPI or other published package.
+- No status page, SLA, deprecation policy or changelog.
+- No pricing, plans or sign-up.
+- No `api.`, `developer.`, `docs.`, `portal.`, `status.` or `trust.` subdomain resolves.
+
+## Links
+
+- https://envisics.com/
+- https://envisics.com/products/
+- https://envisics.com/technology/
+- https://envisics.com/company/
+- https://envisics.com/newsroom/

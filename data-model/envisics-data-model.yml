@@ -1,0 +1,154 @@
+generated: '2026-08-12'
+method: derived
+source: openapi/envisics-*-openapi.yml component schemas + live /wp/v2/types and /wp/v2/taxonomies
+note: >-
+  Entity-relationship graph of the Envisics WordPress REST content surface, derived from the schema
+  documents the server publishes under OPTIONS and from the live type/taxonomy registry. Only
+  entities that are anonymously readable are modelled; Envisics registers no company-specific custom
+  post type on the REST surface.
+entities:
+- name: Post
+  rest_base: posts
+  spec: openapi/envisics-posts-api-openapi.yml
+  count_at_capture: 34
+  identifier: id (integer)
+  description: >-
+    A newsroom item — press release, news story, tech-short or did-you-know post.
+  key_fields: [id, date, modified, slug, status, link, title, content, excerpt, author, featured_media,
+    categories, tags]
+- name: Page
+  rest_base: pages
+  spec: openapi/envisics-pages-api-openapi.yml
+  count_at_capture: 11
+  identifier: id (integer)
+  description: A static marketing, policy or notice page.
+  key_fields: [id, date, modified, slug, status, link, title, content, excerpt, parent, menu_order,
+    featured_media, template]
+- name: Attachment
+  rest_base: media
+  spec: openapi/envisics-media-api-openapi.yml
+  count_at_capture: 219
+  identifier: id (integer)
+  description: >-
+    A media library item — AR HUD imagery, waveguide renders, press photography, brand assets — with
+    generated size variants under media_details.sizes.
+  key_fields: [id, date, slug, link, title, alt_text, caption, media_type, mime_type, source_url,
+    media_details, post]
+- name: Category
+  rest_base: categories
+  spec: openapi/envisics-taxonomy-api-openapi.yml
+  count_at_capture: 7
+  identifier: id (integer)
+  description: >-
+    A newsroom category. Live terms at capture: news (24), press (8), tech-shorts (8),
+    blogdid-you-know (8), did-you-know (6), white-papers (1), uncategorised (0).
+  key_fields: [id, name, slug, description, count, parent, link]
+- name: Tag
+  rest_base: tags
+  spec: openapi/envisics-taxonomy-api-openapi.yml
+  count_at_capture: 24
+  identifier: id (integer)
+  description: A free-form newsroom tag.
+  key_fields: [id, name, slug, description, count, link]
+- name: User
+  rest_base: users
+  spec: openapi/envisics-discovery-api-openapi.yml
+  count_at_capture: 1
+  identifier: id (integer)
+  description: >-
+    A public author record. Exactly one author account is exposed; every post is attributed to it.
+  key_fields: [id, name, slug, description, link, avatar_urls]
+- name: SearchResult
+  rest_base: search
+  spec: openapi/envisics-search-api-openapi.yml
+  count_at_capture: 62
+  identifier: id (integer, scoped by type/subtype)
+  description: A lightweight cross-type search projection over posts and pages.
+  key_fields: [id, title, url, type, subtype]
+- name: PostType
+  rest_base: types
+  spec: openapi/envisics-discovery-api-openapi.yml
+  identifier: slug (string)
+  description: Registry entry describing a content type and its REST base.
+  key_fields: [slug, name, description, rest_base, rest_namespace, taxonomies, hierarchical]
+- name: Taxonomy
+  rest_base: taxonomies
+  spec: openapi/envisics-discovery-api-openapi.yml
+  identifier: slug (string)
+  description: Registry entry describing a taxonomy and the types it applies to.
+  key_fields: [slug, name, description, rest_base, rest_namespace, types, hierarchical]
+- name: Status
+  rest_base: statuses
+  spec: openapi/envisics-discovery-api-openapi.yml
+  identifier: slug (string)
+  description: A publication status visible to the caller; `publish` is the only public one.
+  key_fields: [slug, name, public, queryable]
+relationships:
+- from: Post
+  to: User
+  type: belongs_to
+  via: author
+  note: Integer author id resolving to /wp/v2/users/{id}; also embeddable via _embed.
+- from: Post
+  to: Attachment
+  type: has_one
+  via: featured_media
+  note: Integer attachment id; 0 when no featured image is set.
+- from: Post
+  to: Category
+  type: has_many
+  via: categories
+  note: Array of term ids resolving to /wp/v2/categories/{id}.
+- from: Post
+  to: Tag
+  type: has_many
+  via: tags
+  note: Array of term ids resolving to /wp/v2/tags/{id}.
+- from: Page
+  to: Page
+  type: belongs_to
+  via: parent
+  note: Self-referential hierarchy; 0 at the root.
+- from: Page
+  to: User
+  type: belongs_to
+  via: author
+- from: Page
+  to: Attachment
+  type: has_one
+  via: featured_media
+- from: Attachment
+  to: Post
+  type: belongs_to
+  via: post
+  note: The post or page the attachment was uploaded to; 0 when unattached.
+- from: Category
+  to: Category
+  type: belongs_to
+  via: parent
+  note: Categories are hierarchical.
+- from: PostType
+  to: Taxonomy
+  type: has_many
+  via: taxonomies
+- from: Taxonomy
+  to: PostType
+  type: has_many
+  via: types
+- from: SearchResult
+  to: Post
+  type: has_one
+  via: id + subtype
+  note: subtype names the concrete rest_base to dereference (post or page).
+not_exposed:
+- name: timeline-awesome
+  reason: >-
+    A custom post type present in the site sitemap (https://envisics.com/timeline-awesome-sitemap.xml)
+    but NOT registered on the REST API — no /wp/v2/timeline-awesome route exists in the route index
+    and it is absent from /wp/v2/types. The company-history timeline is therefore readable as HTML
+    but not through the API.
+- name: feedback / jp_pay_order / jp_pay_product / elementor_*
+  reason: >-
+    Registered types that are plugin scaffolding (Gravity Forms responses, Jetpack payments,
+    Elementor templates) rather than Envisics content, and are not anonymously readable.
+render: null

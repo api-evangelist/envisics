@@ -1,0 +1,168 @@
+generated: '2026-08-12'
+method: probed
+source: live anonymous requests against https://envisics.com/wp-json on 2026-08-12
+note: >-
+  Real request/response captures from the Envisics WordPress REST content API. Every payload below
+  was returned by the live server on 2026-08-12 and is reproduced verbatim (responses trimmed with
+  the `_fields` parameter shown in each request, and collections truncated to the first item where
+  noted). Nothing here is synthesized. No credentials were used — the surface is anonymous.
+examples:
+- name: List the most recent newsroom post
+  operation: openapi/envisics-posts-api-openapi.yml#listPosts
+  request:
+    method: GET
+    url: https://envisics.com/wp-json/wp/v2/posts?per_page=1&_fields=id,date,slug,status,link,title,excerpt,author,featured_media,categories,tags
+  response:
+    status: 200
+    headers:
+      x-wp-total: '34'
+      x-wp-totalpages: '34'
+      allow: GET
+    body:
+    - id: 2431
+      date: '2025-06-25T11:28:52'
+      slug: envisics-powering-augmented-reality-on-2026-cadillac-vistiq
+      status: publish
+      link: https://envisics.com/press/envisics-powering-augmented-reality-on-2026-cadillac-vistiq/
+      title:
+        rendered: Envisics Powering Augmented Reality on 2026 Cadillac VISTIQ
+      excerpt:
+        rendered: "<p>Latest generation head-up display available on new addition to Cadillac lineup</p>\n"
+        protected: false
+      author: 1
+      featured_media: 587
+      categories: [34]
+      tags: []
+- name: List newsroom categories
+  operation: openapi/envisics-taxonomy-api-openapi.yml#listCategories
+  request:
+    method: GET
+    url: https://envisics.com/wp-json/wp/v2/categories?per_page=2&_fields=id,name,slug,count,link
+  response:
+    status: 200
+    headers:
+      x-wp-total: '7'
+    body:
+    - id: 49
+      count: 8
+      link: https://envisics.com/category/blogdid-you-know/
+      name: Blog
+      slug: blogdid-you-know
+    - id: 57
+      count: 6
+      link: https://envisics.com/category/did-you-know/
+      name: Did You Know
+      slug: did-you-know
+- name: List a media attachment
+  operation: openapi/envisics-media-api-openapi.yml#listMedia
+  request:
+    method: GET
+    url: https://envisics.com/wp-json/wp/v2/media?per_page=1&_fields=id,date,slug,link,title,alt_text,media_type,mime_type,source_url
+  response:
+    status: 200
+    headers:
+      x-wp-total: '219'
+    body:
+    - id: 2445
+      date: '2025-07-15T10:29:46'
+      slug: img_0054
+      link: https://envisics.com/img_0054/
+      title:
+        rendered: IMG_0054
+      alt_text: ''
+      media_type: image
+      mime_type: image/jpeg
+      source_url: https://envisics.com/wp-content/uploads/2025/07/IMG_0054.jpg
+- name: Search site content
+  operation: openapi/envisics-search-api-openapi.yml#search
+  request:
+    method: GET
+    url: https://envisics.com/wp-json/wp/v2/search?search=waveguide&per_page=3
+  response:
+    status: 200
+    body:
+    - id: 72
+      title: Products
+      url: https://envisics.com/products/
+      type: post
+      subtype: page
+    - id: 2
+      title: Envisics
+      url: https://envisics.com/
+      type: post
+      subtype: page
+    note: >-
+      `_links` omitted here for brevity; the live response carries self/about/collection links, with
+      `targetHints.allow: [GET]` confirming the anonymous read-only posture.
+- name: Get oEmbed metadata for a page
+  operation: openapi/envisics-oembed-api-openapi.yml#getOEmbed
+  request:
+    method: GET
+    url: https://envisics.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fenvisics.com%2Fproducts%2F
+  response:
+    status: 200
+    body:
+      version: '1.0'
+      provider_name: Envisics
+      provider_url: https://envisics.com
+      author_name: admin
+      author_url: https://envisics.com/author/admin/
+      title: Products - Envisics
+      type: rich
+      width: 600
+      height: 338
+    note: The `html` and `description` fields are omitted here for brevity; both are returned live.
+- name: Get SEO head metadata and JSON-LD for a page
+  operation: openapi/envisics-seo-api-openapi.yml#getSeoHead
+  request:
+    method: GET
+    url: https://envisics.com/wp-json/yoast/v1/get_head?url=https%3A%2F%2Fenvisics.com%2Fproducts%2F
+  response:
+    status: 200
+    body_keys: [html, json, status]
+    json_keys: [title, robots, canonical, og_locale, og_type, og_title, og_description, og_url,
+      og_site_name, article_modified_time, twitter_card, twitter_misc, schema]
+    note: >-
+      `json.schema` carries the schema.org JSON-LD graph for the page — the cleanest structured
+      source on this surface.
+- name: Error — invalid post id
+  operation: openapi/envisics-posts-api-openapi.yml#getPost
+  request:
+    method: GET
+    url: https://envisics.com/wp-json/wp/v2/posts/999999
+  response:
+    status: 404
+    body:
+      code: rest_post_invalid_id
+      message: Invalid post ID.
+      data:
+        status: 404
+- name: Error — parameter out of bounds
+  operation: openapi/envisics-posts-api-openapi.yml#listPosts
+  request:
+    method: GET
+    url: https://envisics.com/wp-json/wp/v2/posts?per_page=999
+  response:
+    status: 400
+    body:
+      code: rest_invalid_param
+      message: 'Invalid parameter(s): per_page'
+      data:
+        status: 400
+        params:
+          per_page: per_page must be between 1 (inclusive) and 100 (inclusive)
+        details:
+          per_page:
+            code: rest_out_of_bounds
+            message: per_page must be between 1 (inclusive) and 100 (inclusive)
+            data: null
+- name: Gated route — settings requires authentication
+  operation: null
+  request:
+    method: GET
+    url: https://envisics.com/wp-json/wp/v2/settings
+  response:
+    status: 401
+    note: >-
+      Recorded to document the boundary of the anonymous surface. This route is excluded from the
+      OpenAPI documents in openapi/.

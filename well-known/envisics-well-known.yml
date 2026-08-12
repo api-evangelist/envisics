@@ -1,0 +1,46 @@
+generated: '2026-08-12'
+method: probed
+source: live GET probes of https://envisics.com/.well-known/*
+host: https://envisics.com
+note: >-
+  Every well-known discovery path probed on 2026-08-12 returned HTTP 404. Envisics serves no
+  /.well-known/ discovery surface of any kind — no security.txt, no OIDC or OAuth metadata, no API
+  catalog, no agent card. This file records a verified ABSENCE. No WellKnown, SecurityTxt or
+  AgentCard pointer is emitted in apis.yml, because a pointer would assert the provider serves a
+  surface it does not serve. envisics.com is the only host in scope: the API base
+  (https://envisics.com/wp-json) is on the same origin as the website, and no api./developer./docs./
+  portal./status./trust. subdomain resolves.
+documents:
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/openid-configuration
+  status: 404
+- path: /.well-known/oauth-authorization-server
+  status: 404
+- path: /.well-known/oauth-protected-resource
+  status: 404
+- path: /.well-known/api-catalog
+  status: 404
+- path: /.well-known/ai-plugin.json
+  status: 404
+- path: /.well-known/agent-card.json
+  status: 404
+- path: /.well-known/agent.json
+  status: 404
+- path: /.well-known/mcp.json
+  status: 404
+- path: /.well-known/dnt-policy.txt
+  status: 404
+subdomains_probed:
+- host: api.envisics.com
+  resolves: false
+- host: developer.envisics.com
+  resolves: false
+- host: docs.envisics.com
+  resolves: false
+- host: portal.envisics.com
+  resolves: false
+- host: status.envisics.com
+  resolves: false
+- host: trust.envisics.com
+  resolves: false

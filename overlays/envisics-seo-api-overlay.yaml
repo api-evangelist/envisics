@@ -1,0 +1,33 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Envisics SEO Metadata API
+  version: 1.0.0
+extends: openapi/envisics-seo-api-openapi.yml
+x-generated: '2026-08-12'
+x-method: generated
+x-note: Captures the API Evangelist enrichment applied on top of the contract derived from the Envisics WordPress
+  REST surface. The underlying OpenAPI is never mutated. Envisics publishes no OpenAPI of its own; the base document
+  was derived from the server's own OPTIONS schema documents on 2026-08-12.
+actions:
+- target: $.info
+  update:
+    x-apievangelist-profile: https://apis.io/provider/envisics/
+    x-apievangelist-source: third-party profile; not published by Envisics
+    x-apievangelist-surface: WordPress REST content API behind envisics.com
+    x-apievangelist-auth: anonymous read-only
+    x-apievangelist-company-status: Envisics Ltd. in administration since 2026-04-22
+- target: $.info
+  update:
+    x-apievangelist-artifacts:
+      authentication: authentication/envisics-authentication.yml
+      conventions: conventions/envisics-conventions.yml
+      errors: errors/envisics-problem-types.yml
+      lifecycle: lifecycle/envisics-lifecycle.yml
+      conformance: conformance/envisics-conformance.yml
+      data_model: data-model/envisics-data-model.yml
+      rate_limits: rate-limits/envisics-rate-limits.yml
+      llms_txt: llms/envisics-llms.txt
+- target: $.paths.*.get
+  update:
+    x-apievangelist-access: public
+    x-apievangelist-agentic-access: agentic-access/envisics-agentic-access.yml

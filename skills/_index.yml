@@ -1,0 +1,18 @@
+generated: '2026-08-12'
+method: generated
+source: openapi/envisics-*-openapi.yml (every operationId verified present in the specs)
+note: >-
+  Packaged Agent Skills for the anonymously readable Envisics WordPress REST content API. Envisics
+  publishes no AGENTS.md and no skill files of its own — a search of envisics.com and a GitHub org
+  lookup on 2026-08-12 found none — so these are generated, grounded in real operationIds and the
+  conventions/errors artifacts in this repo. Both skills instruct the agent to surface the fact that
+  Envisics Ltd. is in administration.
+skills:
+- file: envisics-read-newsroom-archive.md
+  name: Read the Envisics newsroom archive
+  api: openapi/envisics-posts-api-openapi.yml
+  operations: [listPosts, getPost, listCategories, listTags, getUser, getMediaItem]
+- file: envisics-harvest-company-profile.md
+  name: Harvest the Envisics company profile and brand assets
+  api: openapi/envisics-pages-api-openapi.yml
+  operations: [listPages, getPage, search, listMedia, getMediaItem, getSeoHead, getOEmbed]

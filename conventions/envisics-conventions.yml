@@ -1,0 +1,103 @@
+generated: '2026-08-12'
+method: probed
+source: live response headers and error bodies from https://envisics.com/wp-json/wp/v2/*
+note: >-
+  Cross-cutting request/response semantics of the Envisics WordPress REST content API, read from live
+  responses on 2026-08-12. Envisics publishes no API documentation, so every convention here was
+  observed on the wire rather than quoted from a docs page.
+authentication:
+  style: none — anonymous read-only
+  detail: authentication/envisics-authentication.yml
+idempotency:
+  supported: false
+  header: null
+  note: >-
+    No idempotency contract exists. The anonymous surface is read-only (GET only), so there is
+    nothing to make idempotent, and the server advertises no Idempotency-Key header or equivalent.
+    NO `Idempotency` pointer is emitted in apis.yml — asserting one would be false.
+pagination:
+  style: page-number
+  parameters:
+  - name: page
+    default: 1
+    description: 1-based page index.
+  - name: per_page
+    default: 10
+    minimum: 1
+    maximum: 100
+    description: Items per page; values outside 1-100 return HTTP 400 rest_invalid_param.
+  - name: offset
+    description: Skip a fixed number of items, as an alternative to page.
+  response_signals:
+    headers:
+    - name: X-WP-Total
+      description: Total items in the unpaginated collection.
+      example: '34'
+    - name: X-WP-TotalPages
+      description: Total pages available at the current per_page.
+      example: '17'
+    - name: Link
+      description: RFC 8288 links carrying rel="next" and rel="prev".
+      example: <https://envisics.com/wp-json/wp/v2/posts?per_page=2&page=2>; rel="next"
+    cors_exposed: true
+    cors_expose_header: 'Access-Control-Expose-Headers: X-WP-Total, X-WP-TotalPages, Link'
+sparse_fieldsets:
+  supported: true
+  parameter: _fields
+  description: >-
+    Comma-separated list of top-level response properties to return, e.g.
+    ?_fields=id,slug,link,title. Applies to every wp/v2 collection and item route.
+embedding:
+  supported: true
+  parameter: _embed
+  description: >-
+    Inline linked resources (author, featured media, terms) into the `_embedded` property rather than
+    requiring a second request. Companion parameter `_envelope` wraps the response with its status
+    and headers.
+filtering_and_sorting:
+  search_parameter: search
+  ordering:
+  - name: order
+    values: [asc, desc]
+  - name: orderby
+    note: Allowed values differ per resource; read the enum in each OpenAPI document.
+  date_filters: [after, before, modified_after, modified_before]
+  context_parameter:
+    name: context
+    values: [view, embed, edit]
+    default: view
+    note: The `edit` context requires authentication and is not part of the public surface.
+hypermedia:
+  supported: true
+  style: HAL-style `_links` on every resource, with `curies` for namespaced relations.
+error_envelope:
+  format: wordpress-rest
+  rfc9457: false
+  content_type: application/json
+  shape:
+    code: Machine-readable error code, e.g. rest_post_invalid_id.
+    message: Human-readable message.
+    data.status: HTTP status code, repeated inside the body.
+    data.params: Per-parameter messages on validation failures.
+    data.details: Per-parameter structured detail on validation failures.
+  detail: errors/envisics-problem-types.yml
+versioning:
+  scheme: uri-namespace
+  current: wp/v2
+  detail: lifecycle/envisics-lifecycle.yml
+rate_limiting:
+  documented: false
+  runtime_headers: []
+  detail: rate-limits/envisics-rate-limits.yml
+caching:
+  headers_observed:
+  - 'cache-control: must-revalidate, max-age=0'
+  - 'cache-control: max-age=0, s-maxage=2592000'
+  - expires
+  conditional_requests: not advertised on the probed collection responses
+request_tracing:
+  request_id_header: null
+  note: No request-correlation header is returned.
+security_headers_observed:
+- 'x-content-type-options: nosniff'
+- 'x-robots-tag: noindex'

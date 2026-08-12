@@ -1,0 +1,30 @@
+generated: '2026-08-12'
+method: searched
+source: https://envisics.com/ (full site walked via the Pages API — 11 published pages, no pricing page)
+plan_count: 0
+currency: null
+note: >-
+  Envisics publishes no plans, no pricing and no commercial API terms, because it sells no API. It is
+  an automotive tier-one optics and holography supplier whose commercial motion is design-win
+  contracts with automakers, not self-service software subscriptions. The complete published page
+  set (Products, Technology, Company, Newsroom, Multi Media, Careers, Contact, Terms of Use,
+  Supplier Terms & Conditions, Privacy Policy, home) contains no pricing page, no plans page and no
+  sign-up. The WordPress REST content API catalogued in this repo is free and anonymous by
+  consequence of being the corporate website's CMS, not by a published commercial decision — there
+  is no plan to record, no quota, and no overage. An honest zero, not an omission.
+plans: []
+access_model:
+  pricing: none
+  onboarding: none
+  signup_required: false
+  trial: false
+  public: true
+  label: Public read-only content API, no signup, no plan published
+  confidence: high
+evidence:
+- url: https://envisics.com/wp-json/wp/v2/pages?per_page=50&_fields=slug,link
+  status: 200
+  finding: 11 published pages; no pricing, plans, or sign-up page among them.
+- url: https://envisics.com/wp-json/wp/v2/posts?per_page=1
+  status: 200
+  finding: Collection served anonymously with no key, no quota header and no plan gate.
