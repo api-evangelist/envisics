@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Envisics oEmbed API",
+    "version": "oembed/1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "oEmbed",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get oEmbed data for an envisics.com URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://envisics.com/wp-json/oembed/1.0/embed",
+            "params": [
+              {
+                "name": "url",
+                "value": "",
+                "type": "query",
+                "description": "The URL of the resource for which to fetch oEmbed data."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response serialization format."
+              },
+              {
+                "name": "maxwidth",
+                "value": "",
+                "type": "query",
+                "description": "Maximum width of the embed in pixels."
+              }
+            ]
+          },
+          "docs": "Return oEmbed 1.0 rich metadata for a post or page on envisics.com, including the embeddable iframe HTML."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

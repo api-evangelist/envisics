@@ -2,13 +2,11 @@ generated: '2026-08-12'
 method: derived
 status: candidate
 source: openapi/envisics-*-openapi.yml
-note: >-
-  Envisics operates NO hosted or remote MCP server. Probes on 2026-08-12 found no
-  /.well-known/mcp.json (404), no MCP endpoint referenced anywhere on envisics.com, no npm package,
-  and no public GitHub organization. The tool list below is a CANDIDATE derived from the OpenAPI
-  operations in openapi/ — it describes what an MCP server over this surface would expose, and it is
-  not a claim that Envisics publishes one. Each tool inherits its real input contract from the
-  parameters of the backing OpenAPI operation; see mcp/envisics-tool-crosswalk.yml.
+note: Envisics operates NO hosted or remote MCP server. Probes on 2026-08-12 found no /.well-known/mcp.json
+  (404), no MCP endpoint referenced anywhere on envisics.com, no npm package, and no public GitHub organization.
+  The tool list below is a CANDIDATE derived from the OpenAPI operations in openapi/ — it describes what
+  an MCP server over this surface would expose, and it is not a claim that Envisics publishes one. Each
+  tool inherits its real input contract from the parameters of the backing OpenAPI operation; see mcp/envisics-tool-crosswalk.yml.
 server:
   name: envisics
   transport: http
@@ -81,3 +79,9 @@ tools:
 - name: get_seo_head
   description: Get rendered head metadata and the schema.org JSON-LD graph for an envisics.com URL.
   source_operation: openapi/envisics-seo-api-openapi.yml#getSeoHead
+deployment:
+  mode: none
+  verified: derived
+  tools: 21
+  checked: '2026-08-12'
+  source: catalog MCP census

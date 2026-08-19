@@ -1,0 +1,160 @@
+{
+  "item": [
+    {
+      "id": "9b504aea-bce1-4708-9584-94b9886b25d9",
+      "name": "SEO",
+      "description": {
+        "content": "Rendered head metadata and JSON-LD schema.org graph.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4582d98c-0ba5-4509-b3fd-8d9b1dbbacb2",
+          "name": "Get SEO head metadata for an envisics.com URL",
+          "request": {
+            "name": "Get SEO head metadata for an envisics.com URL",
+            "description": {
+              "content": "Return the rendered <head> metadata for a URL on envisics.com, plus a parsed JSON object carrying the title, robots directives, canonical, Open Graph and Twitter tags and the schema.org JSON-LD graph.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "yoast",
+                "v1",
+                "get_head"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "url",
+                  "value": "<uri>",
+                  "description": "(Required) The envisics.com URL to return head metadata for."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "695fd642-09da-498d-aad5-23480f79b5b7",
+              "name": "Rendered and parsed head metadata.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "yoast",
+                    "v1",
+                    "get_head"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "<uri>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"html\": \"string\",\n  \"json\": {\n    \"title\": \"string\",\n    \"robots\": {},\n    \"canonical\": \"https://ZZVfkXfZZjqH.aiydPGaXQaqlCdE.JZrBpAznuw\",\n    \"og_locale\": \"string\",\n    \"og_type\": \"string\",\n    \"og_title\": \"string\",\n    \"og_description\": \"string\",\n    \"og_url\": \"http://FRNAoCZvoXkamULeDfEhkmEzLNvckir.wocdV5WIwOD7n\",\n    \"og_site_name\": \"string\",\n    \"article_modified_time\": \"1958-01-13T20:50:55.820Z\",\n    \"twitter_card\": \"string\",\n    \"twitter_misc\": {},\n    \"schema\": {}\n  },\n  \"status\": 7327\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7df38361-9b32-477e-929c-77b693fde010",
+              "name": "Not found — the supplied URL does not resolve to envisics.com content.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "yoast",
+                    "v1",
+                    "get_head"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "<uri>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 3683\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://envisics.com/wp-json",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7bb376aa-8ef7-4ec1-be9e-d1976f2027d9",
+    "name": "Envisics SEO Metadata API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public Yoast SEO head endpoint returning the rendered head metadata and its parsed JSON-LD schema.org graph for any envisics.com URL — a structured-data view of every page without scraping the HTML. Requires no authentication.\n\nContact Support:\n Name: Envisics",
+      "type": "text/plain"
+    }
+  }
+}

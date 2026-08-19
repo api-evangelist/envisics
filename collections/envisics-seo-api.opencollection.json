@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Envisics SEO Metadata API",
+    "version": "yoast/v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SEO",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get SEO head metadata for an envisics.com URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://envisics.com/wp-json/yoast/v1/get_head",
+            "params": [
+              {
+                "name": "url",
+                "value": "",
+                "type": "query",
+                "description": "The envisics.com URL to return head metadata for."
+              }
+            ]
+          },
+          "docs": "Return the rendered <head> metadata for a URL on envisics.com, plus a parsed JSON object carrying the title, robots directives, canonical, Open Graph and Twitter tags and the schema.org JSON-LD graph."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

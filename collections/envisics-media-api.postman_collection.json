@@ -1,0 +1,557 @@
+{
+  "item": [
+    {
+      "id": "605ea0bc-74f4-4b88-b6e9-8b4017dc85e9",
+      "name": "Media",
+      "description": {
+        "content": "Images and downloadable assets attached to envisics.com.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "78ad4885-fa4e-4726-b7ca-88e38eabbe71",
+          "name": "List media",
+          "request": {
+            "name": "List media",
+            "description": {
+              "content": "Retrieve a paginated collection of media attachments.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wp",
+                "v2",
+                "media"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<dateTime>",
+                  "description": "Limit response to posts published after a given ISO8601 compliant date."
+                },
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<dateTime>",
+                  "description": "Limit response to posts published before a given ISO8601 compliant date."
+                },
+                {
+                  "disabled": false,
+                  "key": "context",
+                  "value": "view",
+                  "description": "Scope under which the request is made; determines fields present in response."
+                },
+                {
+                  "disabled": false,
+                  "key": "media_type",
+                  "value": "",
+                  "description": "Limit result set to attachments of a particular media type or media types."
+                },
+                {
+                  "disabled": false,
+                  "key": "mime_type",
+                  "value": "",
+                  "description": "Limit result set to attachments of a particular MIME type or MIME types."
+                },
+                {
+                  "disabled": false,
+                  "key": "modified_after",
+                  "value": "<dateTime>",
+                  "description": "Limit response to posts modified after a given ISO8601 compliant date."
+                },
+                {
+                  "disabled": false,
+                  "key": "modified_before",
+                  "value": "<dateTime>",
+                  "description": "Limit response to posts modified before a given ISO8601 compliant date."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Offset the result set by a specific number of items."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "desc",
+                  "description": "Order sort attribute ascending or descending."
+                },
+                {
+                  "disabled": false,
+                  "key": "orderby",
+                  "value": "date",
+                  "description": "Sort collection by post attribute."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Current page of the collection."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10",
+                  "description": "Maximum number of items to be returned in result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Limit results to those matching a string."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_semantics",
+                  "value": "<string>",
+                  "description": "How to interpret the search input."
+                },
+                {
+                  "disabled": false,
+                  "key": "slug",
+                  "value": "<string>",
+                  "description": "Limit result set to posts with one or more specific slugs."
+                },
+                {
+                  "disabled": false,
+                  "key": "slug",
+                  "value": "<string>",
+                  "description": "Limit result set to posts with one or more specific slugs."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "inherit",
+                  "description": "Limit result set to posts assigned one or more statuses."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "13dc88ca-2e4b-4926-b8c4-2a222001067a",
+              "name": "A paginated collection of media items.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "media"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "after",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "context",
+                      "value": "view"
+                    },
+                    {
+                      "key": "media_type",
+                      "value": ""
+                    },
+                    {
+                      "key": "mime_type",
+                      "value": ""
+                    },
+                    {
+                      "key": "modified_after",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "modified_before",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "date"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_semantics",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "inherit"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Total number of items in the unpaginated collection.",
+                  "key": "X-WP-Total",
+                  "value": "3487"
+                },
+                {
+                  "disabled": false,
+                  "description": "Total number of pages available at the current per_page.",
+                  "key": "X-WP-TotalPages",
+                  "value": "3487"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC 8288 pagination links (rel=next / rel=prev).",
+                  "key": "Link",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"date\": \"1964-11-04T22:22:46.428Z\",\n    \"date_gmt\": \"1950-07-12T19:07:23.507Z\",\n    \"guid\": {\n      \"raw\": \"string\",\n      \"rendered\": \"string\"\n    },\n    \"id\": 4495,\n    \"link\": \"http://uDYMFRSm.aeUNkVHgBIEK+u.ZXMNzVQIKQF2B,UBz0E8CVUIqHlPo3zf8BfZoHbPaw\",\n    \"modified\": \"1999-05-23T06:56:34.861Z\",\n    \"modified_gmt\": \"1975-10-21T16:14:51.142Z\",\n    \"slug\": \"string\",\n    \"status\": \"spam\",\n    \"type\": \"string\",\n    \"permalink_template\": \"string\",\n    \"generated_slug\": \"string\",\n    \"class_list\": [\n      \"string\",\n      \"string\"\n    ],\n    \"title\": {\n      \"raw\": \"string\",\n      \"rendered\": \"string\"\n    },\n    \"author\": 1398,\n    \"featured_media\": 595,\n    \"comment_status\": \"closed\",\n    \"ping_status\": \"open\",\n    \"meta\": {},\n    \"template\": \"string\",\n    \"jetpack_videopress_guid\": \"string\",\n    \"jetpack_videopress\": {},\n    \"jetpack_sharing_enabled\": false,\n    \"alt_text\": \"string\",\n    \"caption\": {\n      \"raw\": \"string\",\n      \"rendered\": \"string\"\n    },\n    \"description\": {\n      \"raw\": \"string\",\n      \"rendered\": \"string\"\n    },\n    \"media_type\": \"image\",\n    \"mime_type\": \"string\",\n    \"media_details\": {},\n    \"post\": 4326,\n    \"source_url\": \"https://UoBRXKhKWzudbNeFAlqnLsH.ewcaCdJ4DbhB\",\n    \"missing_image_sizes\": [\n      \"string\",\n      \"string\"\n    ],\n    \"filename\": \"string\",\n    \"filesize\": 4104,\n    \"exif_orientation\": 4586\n  },\n  {\n    \"date\": \"2023-01-29T21:43:48.834Z\",\n    \"date_gmt\": \"2026-04-24T11:25:28.860Z\",\n    \"guid\": {\n      \"raw\": \"string\",\n      \"rendered\": \"string\"\n    },\n    \"id\": 9875,\n    \"link\": \"http://myZphSuzoFmuA.uart9dvNQDkvGcmUoJ4F+rv,O1A0h-5LhFTXA+H.xeccnYVZRAPTbWIrUraUGZHh1f\",\n    \"modified\": \"1997-02-03T08:38:22.116Z\",\n    \"modified_gmt\": \"1964-06-03T09:05:35.269Z\",\n    \"slug\": \"string\",\n    \"status\": \"draft\",\n    \"type\": \"string\",\n    \"permalink_template\": \"string\",\n    \"generated_slug\": \"string\",\n    \"class_list\": [\n      \"string\",\n      \"string\"\n    ],\n    \"title\": {\n      \"raw\": \"string\",\n      \"rendered\": \"string\"\n    },\n    \"author\": 3480,\n    \"featured_media\": 1611,\n    \"comment_status\": \"closed\",\n    \"ping_status\": \"closed\",\n    \"meta\": {},\n    \"template\": \"string\",\n    \"jetpack_videopress_guid\": \"string\",\n    \"jetpack_videopress\": {},\n    \"jetpack_sharing_enabled\": true,\n    \"alt_text\": \"string\",\n    \"caption\": {\n      \"raw\": \"string\",\n      \"rendered\": \"string\"\n    },\n    \"description\": {\n      \"raw\": \"string\",\n      \"rendered\": \"string\"\n    },\n    \"media_type\": \"file\",\n    \"mime_type\": \"string\",\n    \"media_details\": {},\n    \"post\": 9180,\n    \"source_url\": \"https://sNFUBoyWJ.oteX6iUGnoim5Av4I9MFodNiPyHldgZctzjvTbOdxy6A\",\n    \"missing_image_sizes\": [\n      \"string\",\n      \"string\"\n    ],\n    \"filename\": \"string\",\n    \"filesize\": 7730,\n    \"exif_orientation\": 1458\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "644fbe7d-632c-4a10-aac4-68825a637075",
+              "name": "Bad request — an invalid parameter was supplied.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "media"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "after",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "context",
+                      "value": "view"
+                    },
+                    {
+                      "key": "media_type",
+                      "value": ""
+                    },
+                    {
+                      "key": "mime_type",
+                      "value": ""
+                    },
+                    {
+                      "key": "modified_after",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "modified_before",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "date"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_semantics",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "inherit"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 7591\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "62820f46-6c7f-4827-af5b-694d3fb21cbf",
+          "name": "Get a media item",
+          "request": {
+            "name": "Get a media item",
+            "description": {
+              "content": "Retrieve a single media attachment by its numeric identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wp",
+                "v2",
+                "media",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "context",
+                  "value": "view",
+                  "description": "Scope under which the request is made; determines fields present in response."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the post."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e66ce57a-513d-434d-81a4-2fcb5a98633d",
+              "name": "The requested media item.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "media",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the post."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"date\": \"1979-08-23T07:03:40.989Z\",\n  \"date_gmt\": \"1954-10-17T15:06:34.296Z\",\n  \"guid\": {\n    \"raw\": \"string\",\n    \"rendered\": \"string\"\n  },\n  \"id\": 6207,\n  \"link\": \"http://SVbKYcDpOra.uobzI6azwu1JT\",\n  \"modified\": \"1978-01-18T00:44:12.728Z\",\n  \"modified_gmt\": \"2020-09-29T01:06:10.012Z\",\n  \"slug\": \"string\",\n  \"status\": \"draft\",\n  \"type\": \"string\",\n  \"permalink_template\": \"string\",\n  \"generated_slug\": \"string\",\n  \"class_list\": [\n    \"string\",\n    \"string\"\n  ],\n  \"title\": {\n    \"raw\": \"string\",\n    \"rendered\": \"string\"\n  },\n  \"author\": 8243,\n  \"featured_media\": 8796,\n  \"comment_status\": \"open\",\n  \"ping_status\": \"closed\",\n  \"meta\": {},\n  \"template\": \"string\",\n  \"jetpack_videopress_guid\": \"string\",\n  \"jetpack_videopress\": {},\n  \"jetpack_sharing_enabled\": false,\n  \"alt_text\": \"string\",\n  \"caption\": {\n    \"raw\": \"string\",\n    \"rendered\": \"string\"\n  },\n  \"description\": {\n    \"raw\": \"string\",\n    \"rendered\": \"string\"\n  },\n  \"media_type\": \"image\",\n  \"mime_type\": \"string\",\n  \"media_details\": {},\n  \"post\": 2931,\n  \"source_url\": \"https://MxMeLurPymMANIr.zpgulmMA2R52D-A81YQvLUQFct9nS7P63Vo9K2ckMeTDLjNyt0pDPFN.aM,1mCwxxi5kLeqe\",\n  \"missing_image_sizes\": [\n    \"string\",\n    \"string\"\n  ],\n  \"filename\": \"string\",\n  \"filesize\": 4575,\n  \"exif_orientation\": 2449\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4a7574a4-d187-4959-a15e-81561fda89ee",
+              "name": "Not found — no resource matches the supplied identifier.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "media",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the post."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 7591\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://envisics.com/wp-json",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "81576d4e-449b-4039-a10e-61fc0a6f94ca",
+    "name": "Envisics Media API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public, unauthenticated read access to the media library behind envisics.com — AR HUD product imagery, holographic waveguide renders, press photography and brand assets with their generated size variants (219 attachments at capture).\n\nContact Support:\n Name: Envisics",
+      "type": "text/plain"
+    }
+  }
+}
