@@ -1,20 +1,14 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Envisics Posts API
   version: wp/v2
-  description: Public, unauthenticated read access to the Envisics newsroom archive — press releases, news, tech-shorts
-    and did-you-know items (34 published posts at capture) — via the WordPress core REST API. Anonymous access is
-    read-only; write methods on the same routes require WordPress application-password authentication and are not
-    part of the public surface.
+  description: Public, unauthenticated read access to the Envisics newsroom archive — press releases, news, tech-shorts and did-you-know items (34 published posts at capture) — via the WordPress core REST API. Anonymous access is read-only; write methods on the same routes require WordPress application-password authentication and are not part of the public surface.
   contact:
     name: Envisics
     url: https://envisics.com/contact/
   x-derived-from: https://envisics.com/wp-json/ route index + per-route HTTP OPTIONS schema documents
   x-derived-on: '2026-08-12'
-  x-api-evangelist-note: Third-party profile. Envisics publishes no developer program; this documents the anonymously
-    readable WordPress REST content API behind envisics.com. Every path, parameter and schema here was read from
-    the server's own OPTIONS documents on 2026-08-12 — nothing is invented. Envisics Ltd. entered administration
-    on 2026-04-22; this surface is a live corporate-website CMS API and may disappear with the site.
+  x-api-evangelist-note: Third-party profile. Envisics publishes no developer program; this documents the anonymously readable WordPress REST content API behind envisics.com. Every path, parameter and schema here was read from the server's own OPTIONS documents on 2026-08-12 — nothing is invented. Envisics Ltd. entered administration on 2026-04-22; this surface is a live corporate-website CMS API and may disappear with the site.
 servers:
 - url: https://envisics.com/wp-json
   description: Envisics WordPress REST API
@@ -275,7 +269,7 @@ paths:
             application/json:
               schema:
                 type: array
-                items: &id001
+                items:
                   $ref: '#/components/schemas/Post'
         '400':
           description: Bad request — an invalid parameter was supplied.
@@ -322,7 +316,8 @@ paths:
           description: The requested post.
           content:
             application/json:
-              schema: *id001
+              schema:
+                $ref: '#/components/schemas/Post'
         '404':
           description: Not found — no resource matches the supplied identifier.
           content:
@@ -331,23 +326,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    Error:
-      type: object
-      description: WordPress REST API error envelope.
-      properties:
-        code:
-          type: string
-          description: Machine-readable error code, e.g. rest_post_invalid_id.
-        message:
-          type: string
-          description: Human-readable error message.
-        data:
-          type: object
-          description: Error data.
-          properties:
-            status:
-              type: integer
-              description: HTTP status code.
     Post:
       title: post
       type: object
@@ -579,3 +557,20 @@ components:
         jetpack_sharing_enabled:
           description: Are sharing buttons enabled?
           type: boolean
+    Error:
+      type: object
+      description: WordPress REST API error envelope.
+      properties:
+        code:
+          type: string
+          description: Machine-readable error code, e.g. rest_post_invalid_id.
+        message:
+          type: string
+          description: Human-readable error message.
+        data:
+          type: object
+          description: Error data.
+          properties:
+            status:
+              type: integer
+              description: HTTP status code.

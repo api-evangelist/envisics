@@ -1,0 +1,42 @@
+{
+  "provider": "envisics",
+  "sources": [
+    "envisics-discovery-api-openapi.yml",
+    "envisics-media-api-openapi.yml",
+    "envisics-oembed-api-openapi.yml",
+    "envisics-pages-api-openapi.yml",
+    "envisics-posts-api-openapi.yml",
+    "envisics-search-api-openapi.yml",
+    "envisics-seo-api-openapi.yml",
+    "envisics-taxonomy-api-openapi.yml"
+  ],
+  "outputs": [
+    "envisics-discovery-api-openapi.yml",
+    "envisics-users-api-openapi.yml",
+    "envisics-media-api-openapi.yml",
+    "envisics-oembed-api-openapi.yml",
+    "envisics-pages-api-openapi.yml",
+    "envisics-posts-api-openapi.yml",
+    "envisics-search-api-openapi.yml",
+    "envisics-seo-api-openapi.yml",
+    "envisics-categories-api-openapi.yml",
+    "envisics-tags-api-openapi.yml"
+  ],
+  "archived": [
+    "archived openapi/envisics-taxonomy-api-openapi.yml"
+  ],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "envisics-discovery-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "envisics-media-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "envisics-oembed-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "envisics-pages-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "envisics-posts-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "envisics-search-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "envisics-seo-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "envisics-taxonomy-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: written (+3 apis, 10 total)"
+  ],
+  "skipped": []
+}
