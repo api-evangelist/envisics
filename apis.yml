@@ -286,6 +286,8 @@ apis:
   humanURL: https://envisics.com/wp-json/
   baseURL: https://envisics.com/wp-json
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
