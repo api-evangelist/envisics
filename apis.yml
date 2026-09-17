@@ -203,29 +203,6 @@ apis:
     url: lifecycle/envisics-lifecycle.yml
   - type: Overlay
     url: overlays/envisics-discovery-api-overlay.yaml
-- aid: envisics:envisics-oembed-api
-  name: Envisics oEmbed API
-  description: >-
-    Public oEmbed 1.0 provider endpoint for envisics.com URLs, returning embeddable rich metadata — title,
-    author, dimensions and iframe HTML — for any post or page on the site.
-  humanURL: https://envisics.com/wp-json/
-  baseURL: https://envisics.com/wp-json
-  tags:
-  - oEmbed
-  - Metadata
-  properties:
-  - type: OpenAPI
-    url: openapi/envisics-oembed-api-openapi.yml
-  - type: Authentication
-    url: authentication/envisics-authentication.yml
-  - type: ErrorCatalog
-    url: errors/envisics-problem-types.yml
-  - type: Conventions
-    url: conventions/envisics-conventions.yml
-  - type: Conformance
-    url: conformance/envisics-conformance.yml
-  - type: Overlay
-    url: overlays/envisics-oembed-api-overlay.yaml
 - aid: envisics:envisics-seo-api
   name: Envisics SEO Metadata API
   description: >-
@@ -318,12 +295,32 @@ apis:
     url: conformance/envisics-conformance.yml
   - type: Lifecycle
     url: lifecycle/envisics-lifecycle.yml
+- aid: envisics:envisics-o-embed-api
+  name: Envisics o Embed API
+  description: oEmbed 1.0 provider endpoint for envisics.com content.
+  humanURL: https://envisics.com/wp-json/
+  baseURL: https://envisics.com/wp-json
+  tags:
+  - o Embed
+  properties:
+  - type: OpenAPI
+    url: openapi/envisics-o-embed-api-openapi.yml
+  - type: Authentication
+    url: authentication/envisics-authentication.yml
+  - type: ErrorCatalog
+    url: errors/envisics-problem-types.yml
+  - type: Conventions
+    url: conventions/envisics-conventions.yml
+  - type: Conformance
+    url: conformance/envisics-conformance.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/envisics-oembed-api-overlay.yaml
 - type: Overlay
   url: overlays/envisics-taxonomy-api-overlay.yaml
 - type: AgenticAccess
