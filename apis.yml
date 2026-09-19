@@ -301,6 +301,8 @@ apis:
   humanURL: https://envisics.com/wp-json/
   baseURL: https://envisics.com/wp-json
   tags:
+  - oEmbed
+  tags_raw:
   - o Embed
   properties:
   - type: OpenAPI
