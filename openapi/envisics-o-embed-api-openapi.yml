@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Envisics O Embed API
+  title: Envisics o Embed API
   version: oembed/1.0
   description: Public oEmbed 1.0 provider endpoint for envisics.com URLs, returning embeddable rich metadata — title, author, thumbnail dimensions and iframe HTML — for any post or page on the site. Requires no authentication.
   contact:
@@ -13,7 +13,7 @@ servers:
 - url: https://envisics.com/wp-json
   description: Envisics WordPress REST API
 tags:
-- name: oEmbed
+- name: o Embed
   description: oEmbed 1.0 provider endpoint for envisics.com content.
 paths:
   /oembed/1.0/embed:
@@ -22,7 +22,7 @@ paths:
       summary: Get oEmbed data for an envisics.com URL
       description: Return oEmbed 1.0 rich metadata for a post or page on envisics.com, including the embeddable iframe HTML.
       tags:
-      - oEmbed
+      - o Embed
       parameters:
       - name: url
         in: query

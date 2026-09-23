@@ -20,7 +20,7 @@ paths:
     get:
       operationId: getSeoHead
       summary: Get SEO head metadata for an envisics.com URL
-      description: Return the rendered <head> metadata for a URL on envisics.com, plus a parsed JSON object carrying the title, robots directives, canonical, Open Graph and Twitter tags and the schema.org JSON-LD graph.
+      description: Return the rendered metadata for a URL on envisics.com, plus a parsed JSON object carrying the title, robots directives, canonical, Open Graph and Twitter tags and the schema.org JSON-LD graph.
       tags:
       - SEO
       parameters:
@@ -46,23 +46,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    Error:
-      type: object
-      description: WordPress REST API error envelope.
-      properties:
-        code:
-          type: string
-          description: Machine-readable error code.
-        message:
-          type: string
-          description: Human-readable error message.
-        data:
-          type: object
-          description: Error data.
-          properties:
-            status:
-              type: integer
-              description: HTTP status code.
     SeoHead:
       type: object
       description: Yoast SEO head document for a single URL.
@@ -119,3 +102,20 @@ components:
         status:
           type: integer
           description: Status of the head lookup.
+    Error:
+      type: object
+      description: WordPress REST API error envelope.
+      properties:
+        code:
+          type: string
+          description: Machine-readable error code.
+        message:
+          type: string
+          description: Human-readable error message.
+        data:
+          type: object
+          description: Error data.
+          properties:
+            status:
+              type: integer
+              description: HTTP status code.

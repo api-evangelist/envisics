@@ -272,6 +272,51 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    Status:
+      title: status
+      type: object
+      properties:
+        name:
+          description: The title for the status.
+          type: string
+        private:
+          description: Whether posts with this status should be private.
+          type: boolean
+        protected:
+          description: Whether posts with this status should be protected.
+          type: boolean
+        public:
+          description: Whether posts of this status should be shown in the front end of the site.
+          type: boolean
+        queryable:
+          description: Whether posts with this status should be publicly-queryable.
+          type: boolean
+        show_in_list:
+          description: Whether to include posts in the edit listing for their post type.
+          type: boolean
+        slug:
+          description: An alphanumeric identifier for the status.
+          type: string
+        date_floating:
+          description: Whether posts of this status may have floating published dates.
+          type: boolean
+    Error:
+      type: object
+      description: WordPress REST API error envelope.
+      properties:
+        code:
+          type: string
+          description: Machine-readable error code, e.g. rest_post_invalid_id.
+        message:
+          type: string
+          description: Human-readable error message.
+        data:
+          type: object
+          description: Error data.
+          properties:
+            status:
+              type: integer
+              description: HTTP status code.
     Taxonomy:
       title: taxonomy
       type: object
@@ -330,51 +375,6 @@ components:
             show_in_quick_edit:
               description: Whether to show the taxonomy in the quick/bulk edit panel.
               type: boolean
-    Status:
-      title: status
-      type: object
-      properties:
-        name:
-          description: The title for the status.
-          type: string
-        private:
-          description: Whether posts with this status should be private.
-          type: boolean
-        protected:
-          description: Whether posts with this status should be protected.
-          type: boolean
-        public:
-          description: Whether posts of this status should be shown in the front end of the site.
-          type: boolean
-        queryable:
-          description: Whether posts with this status should be publicly-queryable.
-          type: boolean
-        show_in_list:
-          description: Whether to include posts in the edit listing for their post type.
-          type: boolean
-        slug:
-          description: An alphanumeric identifier for the status.
-          type: string
-        date_floating:
-          description: Whether posts of this status may have floating published dates.
-          type: boolean
-    Error:
-      type: object
-      description: WordPress REST API error envelope.
-      properties:
-        code:
-          type: string
-          description: Machine-readable error code, e.g. rest_post_invalid_id.
-        message:
-          type: string
-          description: Human-readable error message.
-        data:
-          type: object
-          description: Error data.
-          properties:
-            status:
-              type: integer
-              description: HTTP status code.
     PostType:
       title: type
       type: object
