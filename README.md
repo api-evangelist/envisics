@@ -64,52 +64,130 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Envisics is a British deep-technology company headquartered in Milton Keynes, UK, pioneering dynamic
-holography for automotive augmented-reality head-up displays (AR HUD). Its first-generation technology
-shipped in over 150,000 Jaguar and Land Rover vehicles; second-generation technology was slated for the
-Cadillac LYRIQ-V and 2026 Cadillac VISTIQ. Investors included Hyundai Mobis, GM Ventures, Stellantis,
-InMotion Ventures and Tarsadia Investments.
+Envisics is a British deep-technology company headquartered in Milton Keynes, United Kingdom, that pioneers dynamic holography for automotive augmented-reality head-up displays (AR HUD). The work began with Dr Jamieson Christmas' PhD at Cambridge University in 2004, continued through Two Trees Photonics (founded 2010, acquired by DAQRI in 2015) which built the world's first laser holographic HUD for Jaguar Land Rover, and was spun out as the independent company Envisics on 1 January 2018. Its Dynamic Holography Platform and next-generation Holographic Waveguide Technology combine proprietary algorithms with simpler, fewer and more robust optics to deliver multi-plane AR imagery at under 10% of the optical power of conventional systems; first-generation technology shipped in over 150,000 Jaguar and Land Rover vehicles and second-generation technology was slated for the Cadillac LYRIQ-V and 2026 Cadillac VISTIQ. Investors included Hyundai Mobis, General Motors Ventures, Stellantis, InMotion Ventures (Jaguar Land Rover) and Tarsadia Investments. Envisics is an automotive hardware and optics supplier rather than a software vendor: it publishes no commercial or developer-facing product API, no developer portal, and no SDKs. The only machine-readable interface it exposes is the WordPress REST content API behind its corporate website at envisics.com, captured here for discovery purposes and anonymously readable but read-only. Envisics Ltd. entered administration on 22 April 2026 under the Insolvency Act 1986, with Geoff Rowley and Simon Carvill-Biggs of FRP Advisory Trading Limited appointed as Joint Administrators.
 
-> **Corporate status.** Envisics Ltd. entered administration on **22 April 2026** under the Insolvency
-> Act 1986. Geoff Rowley and Simon Carvill-Biggs of FRP Advisory Trading Limited are the Joint
-> Administrators; creditor enquiries go to Envisics@frpadvisory.com. The notice is published on the
-> company homepage. Treat every surface catalogued here as ephemeral.
+**Areas:** Company · Automotive · Augmented Reality · Holography · Head-Up Display · Photonics · Optics · Deep Technology · Hardware · Advanced Manufacturing
 
-## What this profile covers
+## Envisics on APIs.io
 
-Envisics is a hardware and optics supplier, not a software vendor. It publishes **no developer program,
-no product API, no SDKs and no API documentation**. The only machine-readable interface it exposes is the
-**WordPress REST content API** behind its corporate website at `https://envisics.com/wp-json` — anonymous,
-read-only, and catalogued here for discovery. The eight OpenAPI documents in `openapi/` were derived by
-API Evangelist from the server's own HTTP `OPTIONS` schema documents on 2026-08-12; Envisics publishes no
-OpenAPI of its own.
+Everything profiled for Envisics is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/envisics/](https://apis.io/providers/envisics/)** — or go straight to one of the APIs or properties below.
 
-| Surface | Live count at capture |
+### APIs (1)
+
+- [Envisics Website (WordPress REST)](https://apis.io/apis/envisics/envisics-com-website-wordpress-rest/) — The public WordPress REST API (wp-json) of the Envisics website at envisics.com: the route index of the site's content management system, catalogued as one…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [envisics](https://apis.io/servers/envisics/envisics/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Envisics Agentic Access](https://apis.io/agentic-access/envisics/envisics-agentic-access/)
+
+#### Collections (8)
+
+Postman and Open Collection request collections.
+
+- [Moved to /providers/envisics/](https://apis.io/collections/envisics/open-envisics-discovery-api/)
+- [Moved to /providers/envisics/](https://apis.io/collections/envisics/open-envisics-media-api/)
+- [Moved to /providers/envisics/](https://apis.io/collections/envisics/open-envisics-oembed-api/)
+- [Moved to /providers/envisics/](https://apis.io/collections/envisics/open-envisics-pages-api/)
+- [Moved to /providers/envisics/](https://apis.io/collections/envisics/open-envisics-posts-api/)
+- [Moved to /providers/envisics/](https://apis.io/collections/envisics/open-envisics-search-api/)
+- [Moved to /providers/envisics/](https://apis.io/collections/envisics/open-envisics-seo-api/)
+- [Envisics Taxonomy API](https://apis.io/collections/envisics/open-envisics-taxonomy-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Envisics Taxonomy Api Overlay](https://apis.io/overlays/envisics/envisics-taxonomy-api-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Envisics Authentication](https://apis.io/security/envisics/envisics-authentication/)
+- [Envisics Domain Security](https://apis.io/security/envisics/envisics-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Envisics Plans Pricing](https://apis.io/plans/envisics/envisics-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Envisics Rate Limits](https://apis.io/rate-limits/envisics/envisics-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://envisics.com/)
+- [Blog](https://envisics.com/newsroom/)
+- [Terms of service](https://envisics.com/terms-of-use/)
+- [Privacy policy](https://envisics.com/privacy-policy/)
+
+## API Evangelist rating
+
+**Kin Score 19.6** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
 |---|---|
-| Posts (newsroom) | 34 |
-| Pages | 11 |
-| Media attachments | 219 |
-| Categories / Tags | 7 / 24 |
-| Searchable objects | 62 |
-| Public authors | 1 |
+| Discoverability | 65.2 |
+| Contract quality | 7.3 |
+| Contract governance | 4.5 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 25.6 |
+| Access clarity | 21.1 |
 
-## Verified absences (probed 2026-08-12)
+**Agent readiness 11.9** — agent-aware
 
-Recorded so nothing is inferred from silence:
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-- No `/llms.txt`; no `/.well-known/*` document of any kind — `security.txt`, `openid-configuration`,
-  `oauth-authorization-server`, `api-catalog`, `agent-card.json` and `agent.json` all returned **404**.
-- No A2A agent card, no MCP server, no GraphQL endpoint, no gRPC.
-- No AsyncAPI, no webhooks, no event or streaming surface.
-- No public GitHub organization; no npm, PyPI or other published package.
-- No status page, SLA, deprecation policy or changelog.
-- No pricing, plans or sign-up.
-- No `api.`, `developer.`, `docs.`, `portal.`, `status.` or `trust.` subdomain resolves.
+**Regulatory alignment 24.5** — Horizontal (data, software, accessibility, platform)
 
-## Links
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/envisics/](https://apis.io/providers/envisics/).
 
-- https://envisics.com/
-- https://envisics.com/products/
-- https://envisics.com/technology/
-- https://envisics.com/company/
-- https://envisics.com/newsroom/
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Envisics: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/envisics/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
